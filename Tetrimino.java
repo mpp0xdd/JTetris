@@ -25,7 +25,7 @@ public abstract class Tetrimino {
     }
   }
 
-  public void rotateLeft() {
+  public void rotateLeft(IField field, int x, int y) {
     IBlock[][] newBlocks = new IBlock[LENGTH][LENGTH];
 
     for (int i = 0; i < LENGTH; i++) {
@@ -33,10 +33,12 @@ public abstract class Tetrimino {
         newBlocks[LENGTH - 1 - j][i] = this.blocks[i][j];
       }
     }
-    this.blocks = newBlocks;
+    if (field.isSettable(newBlocks, x, y)) {
+      this.blocks = newBlocks;
+    }
   }
 
-  public void rotateRight() {
+  public void rotateRight(IField field, int x, int y) {
     IBlock[][] newBlocks = new IBlock[LENGTH][LENGTH];
 
     for (int i = 0; i < LENGTH; i++) {
@@ -44,6 +46,8 @@ public abstract class Tetrimino {
         newBlocks[j][LENGTH - 1 - i] = this.blocks[i][j];
       }
     }
-    this.blocks = newBlocks;
+    if (field.isSettable(newBlocks, x, y)) {
+      this.blocks = newBlocks;
+    }
   }
 }

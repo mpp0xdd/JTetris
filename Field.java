@@ -25,4 +25,23 @@ public class Field implements IField {
       }
     }
   }
+
+  @Override
+  public boolean isSettable(IBlock[][] blocks, int x, int y) {
+    for (int i = 0; i < blocks.length; i++) {
+      for (int j = 0; j < blocks[i].length; j++) {
+        if (blocks[i][j].equals(IField.EMPTY)) {
+          continue;
+        }
+        try {
+          if (!this.field[i + y][j + x].equals(IField.EMPTY)) {
+            return false;
+          }
+        } catch (ArrayIndexOutOfBoundsException e) {
+          // nop
+        }
+      }
+    }
+    return true;
+  }
 }

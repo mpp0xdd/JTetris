@@ -11,4 +11,6 @@ public interface IField {
   static final IBlock EMPTY = new ColorBlock(new Color(0, 0, 0));
 
   void draw(Graphics g, int x, int y);
+
+  boolean isSettable(IBlock[][] blocks, int x, int y);
 }
