@@ -32,6 +32,8 @@ public class MainScreen extends GameScreen implements KeyListener {
       case KeyEvent.VK_RIGHT -> tetriminoLocation.translate(1, 0);
       case KeyEvent.VK_UP -> tetriminoLocation.translate(0, -1);
       case KeyEvent.VK_DOWN -> tetriminoLocation.translate(0, 1);
+      case KeyEvent.VK_A -> tetrimino.rotateLeft();
+      case KeyEvent.VK_D -> tetrimino.rotateRight();
     }
     repaint();
   }
