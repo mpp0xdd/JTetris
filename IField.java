@@ -15,4 +15,6 @@ public interface IField {
   boolean isSettable(IBlock[][] blocks, int x, int y);
 
   void set(IBlock[][] blocks, int x, int y);
+
+  int clearLine();
 }

@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class MainScreen extends GameScreen implements KeyListener {
 
   private final IField field = new Field();
-  private TetriminoSupplier supplier = new TetriminoSupplier();
+  private TetriminoSupplier supplier = new TetriminoSupplierForTest();
   private ITetrimino tetrimino = supplier.get();
   private final int ix = IField.COLUMNS / 2 - Tetrimino.LENGTH / 2;
   private final int iy = -Tetrimino.LENGTH;
@@ -35,6 +35,9 @@ public class MainScreen extends GameScreen implements KeyListener {
       tp.setLocation(ix, iy);
       tetrimino = supplier.get();
     }
+
+    field.clearLine();
+
     repaint();
   }
 

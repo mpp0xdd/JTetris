@@ -62,4 +62,26 @@ public class Field implements IField {
       }
     }
   }
+
+  @Override
+  public int clearLine() {
+    int numOfLinesCleared = 0;
+    rowLoop:
+    for (int i = 0; i < ROWS - 1; i++) {
+      for (int j = 1; j < COLUMNS - 1; j++) {
+        if (field[i][j].equals(IField.EMPTY)) {
+          continue rowLoop;
+        }
+      }
+
+      for (int j = 1; j < COLUMNS - 1; j++) {
+        field[i][j] = IField.EMPTY;
+      }
+      numOfLinesCleared++;
+      for (int i2 = i; i2 > 0; i2--) {
+        field[i2] = field[i2 - 1];
+      }
+    }
+    return numOfLinesCleared;
+  }
 }
