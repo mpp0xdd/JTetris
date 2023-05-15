@@ -6,7 +6,8 @@ import java.awt.event.KeyListener;
 public class MainScreen extends GameScreen implements KeyListener {
 
   private final IField field = new Field();
-  private ITetrimino tetrimino = Tetrimino.newTTetrimino();
+  private TetriminoSupplier supplier = new TetriminoSupplier();
+  private ITetrimino tetrimino = supplier.get();
   private final int ix = IField.COLUMNS / 2 - Tetrimino.LENGTH / 2;
   private final int iy = -Tetrimino.LENGTH;
   private final Point tloc = new Point(ix, iy);
@@ -32,6 +33,7 @@ public class MainScreen extends GameScreen implements KeyListener {
     } else {
       tetrimino.set(field, tloc.x, tloc.y);
       tloc.setLocation(ix, iy);
+      tetrimino = supplier.get();
     }
     repaint();
   }
@@ -60,6 +62,7 @@ public class MainScreen extends GameScreen implements KeyListener {
         } else {
           tetrimino.set(field, tloc.x, tloc.y);
           tloc.setLocation(ix, iy);
+          tetrimino = supplier.get();
         }
       }
       case KeyEvent.VK_A -> tetrimino.rotateLeft(field, tloc.x, tloc.y);
