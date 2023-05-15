@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 
 public abstract class Tetrimino {
-  private static final int LENGTH = 4;
+  public static final int LENGTH = 4;
   protected IBlock[][] blocks;
 
   public Tetrimino() {

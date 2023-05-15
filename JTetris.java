@@ -5,5 +5,6 @@ public class JTetris {
 
     window.switchGameScreen(screen);
     window.setVisible(true);
+    screen.startGameLoop();
   }
 }

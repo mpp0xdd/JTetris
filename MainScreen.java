@@ -7,10 +7,13 @@ public class MainScreen extends GameScreen implements KeyListener {
 
   private final IField field = new Field();
   private Tetrimino tetrimino = new ITetrimino();
-  private final Point tloc = new Point(2, 4);
+  private final int ix = IField.COLUMNS / 2 - Tetrimino.LENGTH / 2;
+  private final int iy = -Tetrimino.LENGTH;
+  private final Point tloc = new Point(ix, iy);
 
   public MainScreen() {
     super(IField.WIDTH, IField.HEIGHT);
+    setGameLoopInterval(250);
     setFocusable(true);
     addKeyListener(this);
   }
@@ -23,7 +26,12 @@ public class MainScreen extends GameScreen implements KeyListener {
   }
 
   @Override
-  protected void runGameLoop() {}
+  protected void runGameLoop() {
+    if (field.isSettable(tetrimino.blocks, tloc.x, tloc.y + 1)) {
+      tloc.translate(0, 1);
+    }
+    repaint();
+  }
 
   @Override
   public void keyPressed(KeyEvent e) {
