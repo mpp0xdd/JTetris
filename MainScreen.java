@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class MainScreen extends GameScreen implements KeyListener {
 
   private final IField field = new Field();
-  private ITetrimino tetrimino = Tetrimino.newSTetrimino();
+  private ITetrimino tetrimino = Tetrimino.newZTetrimino();
   private final int ix = IField.COLUMNS / 2 - Tetrimino.LENGTH / 2;
   private final int iy = -Tetrimino.LENGTH;
   private final Point tloc = new Point(ix, iy);

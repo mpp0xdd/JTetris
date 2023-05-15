@@ -32,6 +32,16 @@ public class Tetrimino implements ITetrimino {
     return s;
   }
 
+  public static Tetrimino newZTetrimino() {
+    Tetrimino z = new Tetrimino();
+    IBlock block = ColorBlock.RED;
+    z.blocks[0][2] = block;
+    z.blocks[1][2] = block;
+    z.blocks[1][1] = block;
+    z.blocks[2][1] = block;
+    return z;
+  }
+
   private IBlock[][] blocks;
 
   private Tetrimino() {
