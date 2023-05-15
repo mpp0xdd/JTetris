@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class MainScreen extends GameScreen implements KeyListener {
 
   private final IField field = new Field();
-  private Tetrimino tetrimino = new ITetrimino();
+  private ITetrimino tetrimino = Tetrimino.newITetrimino();
   private final int ix = IField.COLUMNS / 2 - Tetrimino.LENGTH / 2;
   private final int iy = -Tetrimino.LENGTH;
   private final Point tloc = new Point(ix, iy);
@@ -27,7 +27,7 @@ public class MainScreen extends GameScreen implements KeyListener {
 
   @Override
   protected void runGameLoop() {
-    if (field.isSettable(tetrimino.blocks, tloc.x, tloc.y + 1)) {
+    if (tetrimino.isSettable(field, tloc.x, tloc.y + 1)) {
       tloc.translate(0, 1);
     }
     repaint();
@@ -37,22 +37,22 @@ public class MainScreen extends GameScreen implements KeyListener {
   public void keyPressed(KeyEvent e) {
     switch (e.getKeyCode()) {
       case KeyEvent.VK_LEFT -> {
-        if (field.isSettable(tetrimino.blocks, tloc.x - 1, tloc.y)) {
+        if (tetrimino.isSettable(field, tloc.x - 1, tloc.y)) {
           tloc.translate(-1, 0);
         }
       }
       case KeyEvent.VK_RIGHT -> {
-        if (field.isSettable(tetrimino.blocks, tloc.x + 1, tloc.y)) {
+        if (tetrimino.isSettable(field, tloc.x + 1, tloc.y)) {
           tloc.translate(1, 0);
         }
       }
       case KeyEvent.VK_UP -> {
-        if (field.isSettable(tetrimino.blocks, tloc.x, tloc.y - 1)) {
+        if (tetrimino.isSettable(field, tloc.x, tloc.y - 1)) {
           tloc.translate(0, -1);
         }
       }
       case KeyEvent.VK_DOWN -> {
-        if (field.isSettable(tetrimino.blocks, tloc.x, tloc.y + 1)) {
+        if (tetrimino.isSettable(field, tloc.x, tloc.y + 1)) {
           tloc.translate(0, 1);
         }
       }

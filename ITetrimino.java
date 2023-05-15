@@ -1,12 +1,13 @@
-import java.awt.Color;
+import java.awt.Graphics;
 
-public class ITetrimino extends Tetrimino {
-  private static final IBlock block = new ColorBlock(new Color(0, 204, 204));
+public interface ITetrimino {
+  static final int LENGTH = 4;
 
-  public ITetrimino() {
-    this.blocks[0][1] = block;
-    this.blocks[1][1] = block;
-    this.blocks[2][1] = block;
-    this.blocks[3][1] = block;
-  }
+  void draw(Graphics g, int x, int y);
+
+  void rotateLeft(IField field, int x, int y);
+
+  void rotateRight(IField field, int x, int y);
+
+  boolean isSettable(IField field, int x, int y);
 }
