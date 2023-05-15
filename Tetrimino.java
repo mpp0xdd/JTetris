@@ -22,6 +22,16 @@ public class Tetrimino implements ITetrimino {
     return o;
   }
 
+  public static Tetrimino newSTetrimino() {
+    Tetrimino s = new Tetrimino();
+    IBlock block = ColorBlock.GREEN;
+    s.blocks[0][1] = block;
+    s.blocks[1][1] = block;
+    s.blocks[1][2] = block;
+    s.blocks[2][2] = block;
+    return s;
+  }
+
   private IBlock[][] blocks;
 
   private Tetrimino() {
