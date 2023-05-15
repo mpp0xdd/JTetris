@@ -7,6 +7,7 @@ public class ColorBlock implements IBlock {
   public static final IBlock YELLOW = new ColorBlock(new Color(204, 204, 0));
   public static final IBlock GREEN = new ColorBlock(new Color(0, 204, 0));
   public static final IBlock RED = new ColorBlock(new Color(204, 0, 0));
+  public static final IBlock BLUE = new ColorBlock(new Color(0, 0, 204));
 
   private final Color color;
 
