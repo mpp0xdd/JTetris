@@ -68,4 +68,9 @@ public class Tetrimino implements ITetrimino {
   public boolean isSettable(IField field, int x, int y) {
     return field.isSettable(this.blocks, x, y);
   }
+
+  @Override
+  public void set(IField field, int x, int y) {
+    field.set(this.blocks, x, y);
+  }
 }

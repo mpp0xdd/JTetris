@@ -29,6 +29,9 @@ public class MainScreen extends GameScreen implements KeyListener {
   protected void runGameLoop() {
     if (tetrimino.isSettable(field, tloc.x, tloc.y + 1)) {
       tloc.translate(0, 1);
+    } else {
+      tetrimino.set(field, tloc.x, tloc.y);
+      tloc.setLocation(ix, iy);
     }
     repaint();
   }
@@ -54,6 +57,9 @@ public class MainScreen extends GameScreen implements KeyListener {
       case KeyEvent.VK_DOWN -> {
         if (tetrimino.isSettable(field, tloc.x, tloc.y + 1)) {
           tloc.translate(0, 1);
+        } else {
+          tetrimino.set(field, tloc.x, tloc.y);
+          tloc.setLocation(ix, iy);
         }
       }
       case KeyEvent.VK_A -> tetrimino.rotateLeft(field, tloc.x, tloc.y);

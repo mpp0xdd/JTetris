@@ -13,4 +13,6 @@ public interface IField {
   void draw(Graphics g, int x, int y);
 
   boolean isSettable(IBlock[][] blocks, int x, int y);
+
+  void set(IBlock[][] blocks, int x, int y);
 }

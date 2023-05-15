@@ -10,4 +10,6 @@ public interface ITetrimino {
   void rotateRight(IField field, int x, int y);
 
   boolean isSettable(IField field, int x, int y);
+
+  void set(IField field, int x, int y);
 }
