@@ -1,10 +1,11 @@
 import java.util.Random;
+import java.util.function.Supplier;
 
-public class TetriminoSupplierForTest extends TetriminoSupplier {
+public class TetriminoSupplierForTest implements Supplier<ITetrimino> {
   private Random rnd = new Random();
 
   @Override
-  public Tetrimino get() {
+  public ITetrimino get() {
     return switch (rnd.nextInt(2)) {
       case 0 -> Tetrimino.newITetrimino();
       case 1 -> Tetrimino.newOTetrimino();

@@ -2,11 +2,12 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.function.Supplier;
 
 public class MainScreen extends GameScreen implements KeyListener {
 
   private final IField field = new Field();
-  private TetriminoSupplier supplier = new TetriminoSupplierForTest();
+  private Supplier<ITetrimino> supplier = new TetriminoSupplierForTest();
   private ITetrimino tetrimino = supplier.get();
   private final int ix = IField.COLUMNS / 2 - Tetrimino.LENGTH / 2;
   private final int iy = -Tetrimino.LENGTH;
