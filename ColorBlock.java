@@ -3,6 +3,8 @@ import java.awt.Graphics;
 import java.util.Objects;
 
 public class ColorBlock implements IBlock {
+  public static final IBlock GRAY = new ColorBlock(new Color(119, 119, 119));
+  public static final IBlock BLACK = new ColorBlock(new Color(0, 0, 0));
   public static final IBlock LIGHT_BLUE = new ColorBlock(new Color(0, 204, 204));
   public static final IBlock YELLOW = new ColorBlock(new Color(204, 204, 0));
   public static final IBlock GREEN = new ColorBlock(new Color(0, 204, 0));
