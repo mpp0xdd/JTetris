@@ -73,14 +73,12 @@ public class Field implements IField {
           continue rowLoop;
         }
       }
-
-      for (int j = 1; j < COLUMNS - 1; j++) {
-        field[i][j] = IField.EMPTY;
+      for (int i2 = i; i2 > 0; i2--) {
+        for (int j = 1; j < COLUMNS - 1; j++) {
+          field[i2][j] = field[i2 - 1][j];
+        }
       }
       numOfLinesCleared++;
-      for (int i2 = i; i2 > 0; i2--) {
-        field[i2] = field[i2 - 1];
-      }
     }
     return numOfLinesCleared;
   }
