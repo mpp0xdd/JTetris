@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.function.Supplier;
 
-public class TetriminoSupplier implements Supplier<ITetrimino> {
+public class ColorTetriminoSupplier implements Supplier<ITetrimino> {
   private Random rnd = new Random();
 
   @Override
