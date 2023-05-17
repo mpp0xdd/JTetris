@@ -2,9 +2,14 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Optional;
 import java.util.function.Supplier;
+import javax.sound.sampled.Clip;
 
 public class MainScreen extends GameScreen implements KeyListener {
+
+  private final Optional<Clip> bgmClip =
+      GameUtilities.loadClip(MainScreen.class.getResource("sounds/bgm.wav"));
 
   private final IField field = new Field();
   private Supplier<ITetrimino> supplier = new TetriminoSupplierForTest();
@@ -18,6 +23,10 @@ public class MainScreen extends GameScreen implements KeyListener {
     setGameLoopInterval(250);
     setFocusable(true);
     addKeyListener(this);
+  }
+
+  public void playBGM() {
+    bgmClip.ifPresent(GameUtilities::repeatClip);
   }
 
   @Override
