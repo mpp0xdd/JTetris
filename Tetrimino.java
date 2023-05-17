@@ -13,10 +13,6 @@ public class Tetrimino implements ITetrimino {
     return i;
   }
 
-  public static Tetrimino newITetrimino() {
-    return newITetrimino(ColorBlock.LIGHT_BLUE);
-  }
-
   public static Tetrimino newOTetrimino(IBlock block) {
     Objects.requireNonNull(block);
     Tetrimino o = new Tetrimino();
@@ -25,10 +21,6 @@ public class Tetrimino implements ITetrimino {
     o.blocks[2][1] = block;
     o.blocks[2][2] = block;
     return o;
-  }
-
-  public static Tetrimino newOTetrimino() {
-    return newOTetrimino(ColorBlock.YELLOW);
   }
 
   public static Tetrimino newSTetrimino(IBlock block) {
@@ -41,10 +33,6 @@ public class Tetrimino implements ITetrimino {
     return s;
   }
 
-  public static Tetrimino newSTetrimino() {
-    return newSTetrimino(ColorBlock.GREEN);
-  }
-
   public static Tetrimino newZTetrimino(IBlock block) {
     Objects.requireNonNull(block);
     Tetrimino z = new Tetrimino();
@@ -53,10 +41,6 @@ public class Tetrimino implements ITetrimino {
     z.blocks[1][1] = block;
     z.blocks[2][1] = block;
     return z;
-  }
-
-  public static Tetrimino newZTetrimino() {
-    return newZTetrimino(ColorBlock.RED);
   }
 
   public static Tetrimino newJTetrimino(IBlock block) {
@@ -69,10 +53,6 @@ public class Tetrimino implements ITetrimino {
     return j;
   }
 
-  public static Tetrimino newJTetrimino() {
-    return newJTetrimino(ColorBlock.BLUE);
-  }
-
   public static Tetrimino newLTetrimino(IBlock block) {
     Objects.requireNonNull(block);
     Tetrimino l = new Tetrimino();
@@ -83,10 +63,6 @@ public class Tetrimino implements ITetrimino {
     return l;
   }
 
-  public static Tetrimino newLTetrimino() {
-    return newLTetrimino(ColorBlock.ORANGE);
-  }
-
   public static Tetrimino newTTetrimino(IBlock block) {
     Objects.requireNonNull(block);
     Tetrimino t = new Tetrimino();
@@ -95,10 +71,6 @@ public class Tetrimino implements ITetrimino {
     t.blocks[1][2] = block;
     t.blocks[2][1] = block;
     return t;
-  }
-
-  public static Tetrimino newTTetrimino() {
-    return newTTetrimino(ColorBlock.PURPLE);
   }
 
   private IBlock[][] blocks;

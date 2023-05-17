@@ -7,8 +7,8 @@ public class TetriminoSupplierForTest implements Supplier<ITetrimino> {
   @Override
   public ITetrimino get() {
     return switch (rnd.nextInt(2)) {
-      case 0 -> Tetrimino.newITetrimino();
-      case 1 -> Tetrimino.newOTetrimino();
+      case 0 -> Tetrimino.newITetrimino(ColorBlock.LIGHT_BLUE);
+      case 1 -> Tetrimino.newOTetrimino(ColorBlock.YELLOW);
       default -> throw (new IllegalStateException("Failed to supply tetriminos"));
     };
   }
