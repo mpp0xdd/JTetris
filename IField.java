@@ -1,13 +1,13 @@
 import java.awt.Graphics;
 
 public interface IField {
-  static final int ROWS = 20 + 1;
-  static final int COLUMNS = 10 + 2;
-  static final int WIDTH = COLUMNS * IBlock.SIZE;
-  static final int HEIGHT = ROWS * IBlock.SIZE;
+  int ROWS = 20 + 1;
+  int COLUMNS = 10 + 2;
+  int WIDTH = COLUMNS * IBlock.SIZE;
+  int HEIGHT = ROWS * IBlock.SIZE;
 
-  static final IBlock WALL = ColorBlock.GRAY;
-  static final IBlock EMPTY = ColorBlock.BLACK;
+  IBlock WALL = ColorBlock.GRAY;
+  IBlock EMPTY = ColorBlock.BLACK;
 
   void draw(Graphics g, int x, int y);
 
