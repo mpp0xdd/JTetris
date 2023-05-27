@@ -1,4 +1,4 @@
-package jtetris.interfaces;
+package jtetris.common;
 import java.awt.Graphics;
 import jtetris.component.ColorBlock;
 

@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.Objects;
 import jglib.util.GameUtilities;
-import jtetris.interfaces.IBlock;
+import jtetris.common.IBlock;
 
 public class ImageBlock implements IBlock {
   public static final IBlock GRAY =

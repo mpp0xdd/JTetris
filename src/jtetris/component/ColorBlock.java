@@ -3,7 +3,7 @@ package jtetris.component;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Objects;
-import jtetris.interfaces.IBlock;
+import jtetris.common.IBlock;
 
 public class ColorBlock implements IBlock {
   public static final IBlock GRAY = new ColorBlock(new Color(119, 119, 119));

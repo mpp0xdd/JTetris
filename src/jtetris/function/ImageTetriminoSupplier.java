@@ -1,9 +1,9 @@
 package jtetris.function;
 import java.util.Random;
 import java.util.function.Supplier;
+import jtetris.common.ITetrimino;
 import jtetris.component.ImageBlock;
 import jtetris.component.Tetrimino;
-import jtetris.interfaces.ITetrimino;
 
 public class ImageTetriminoSupplier implements Supplier<ITetrimino> {
   private Random rnd = new Random();

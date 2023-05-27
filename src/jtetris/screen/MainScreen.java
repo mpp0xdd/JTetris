@@ -9,11 +9,11 @@ import java.util.function.Supplier;
 import javax.sound.sampled.Clip;
 import jglib.component.GameScreen;
 import jglib.util.GameUtilities;
+import jtetris.common.IField;
+import jtetris.common.ITetrimino;
 import jtetris.component.Field;
 import jtetris.component.Tetrimino;
 import jtetris.function.ColorTetriminoSupplier;
-import jtetris.interfaces.IField;
-import jtetris.interfaces.ITetrimino;
 
 public class MainScreen extends GameScreen implements KeyListener {
 
