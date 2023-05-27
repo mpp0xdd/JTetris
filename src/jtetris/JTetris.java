@@ -5,7 +5,7 @@ import jtetris.screen.MainScreen;
 
 public class JTetris {
   public static void main(String[] args) {
-    GameWindow window = new JTetrisWindow();
+    GameWindow window = new GameWindow("JTetris");
     MainScreen screen = new MainScreen();
 
     window.switchGameScreen(screen);
