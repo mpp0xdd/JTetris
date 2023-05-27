@@ -1,7 +1,11 @@
+package jtetris.component;
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.Objects;
+import jglib.util.GameUtilities;
+import jtetris.interfaces.IBlock;
 
 public class ImageBlock implements IBlock {
   public static final IBlock GRAY =

@@ -1,3 +1,5 @@
+package jtetris.screen;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
@@ -5,6 +7,13 @@ import java.awt.event.KeyListener;
 import java.util.Optional;
 import java.util.function.Supplier;
 import javax.sound.sampled.Clip;
+import jglib.component.GameScreen;
+import jglib.util.GameUtilities;
+import jtetris.component.Field;
+import jtetris.component.Tetrimino;
+import jtetris.function.ColorTetriminoSupplier;
+import jtetris.interfaces.IField;
+import jtetris.interfaces.ITetrimino;
 
 public class MainScreen extends GameScreen implements KeyListener {
 

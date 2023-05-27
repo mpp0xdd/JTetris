@@ -1,3 +1,4 @@
 *.class
 *.png
 *.wav
+/bin/

@@ -1,3 +1,4 @@
+package jtetris.interfaces;
 import java.awt.Graphics;
 
 public interface IBlock {

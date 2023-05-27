@@ -1,5 +1,9 @@
+package jtetris.function;
 import java.util.Random;
 import java.util.function.Supplier;
+import jtetris.component.ColorBlock;
+import jtetris.component.Tetrimino;
+import jtetris.interfaces.ITetrimino;
 
 public class TetriminoSupplierForTest implements Supplier<ITetrimino> {
   private Random rnd = new Random();

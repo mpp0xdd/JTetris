@@ -1,4 +1,7 @@
+package jtetris.component;
 import java.awt.Graphics;
+import jtetris.interfaces.IBlock;
+import jtetris.interfaces.IField;
 
 public class Field implements IField {
   private final IBlock[][] field;

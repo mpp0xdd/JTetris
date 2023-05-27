@@ -1,4 +1,6 @@
+package jtetris.interfaces;
 import java.awt.Graphics;
+import jtetris.component.ColorBlock;
 
 public interface IField {
   int ROWS = 20 + 1;

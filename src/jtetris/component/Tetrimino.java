@@ -1,5 +1,9 @@
+package jtetris.component;
 import java.awt.Graphics;
 import java.util.Objects;
+import jtetris.interfaces.IBlock;
+import jtetris.interfaces.IField;
+import jtetris.interfaces.ITetrimino;
 
 public class Tetrimino implements ITetrimino {
 
