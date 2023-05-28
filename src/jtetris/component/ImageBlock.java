@@ -47,4 +47,18 @@ public class ImageBlock implements IBlock {
   public void draw(Graphics g, int x, int y) {
     g.drawImage(image, x, y, null);
   }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(image);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null) return false;
+    if (getClass() != obj.getClass()) return false;
+    ImageBlock other = (ImageBlock) obj;
+    return Objects.equals(image, other.image);
+  }
 }

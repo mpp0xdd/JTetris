@@ -1,4 +1,5 @@
 package jtetris.common;
+
 import java.awt.Graphics;
 
 public interface IBlock {

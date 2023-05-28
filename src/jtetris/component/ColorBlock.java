@@ -27,4 +27,18 @@ public class ColorBlock implements IBlock {
     g.setColor(this.color);
     g.fill3DRect(x, y, SIZE, SIZE, false);
   }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(color);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null) return false;
+    if (getClass() != obj.getClass()) return false;
+    ColorBlock other = (ColorBlock) obj;
+    return Objects.equals(color, other.color);
+  }
 }
