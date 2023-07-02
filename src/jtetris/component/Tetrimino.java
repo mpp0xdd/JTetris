@@ -105,7 +105,7 @@ public class Tetrimino implements ITetrimino {
   }
 
   @Override
-  public void rotateLeft(IField field, int x, int y) {
+  public void rotateLeft(int x, int y) {
     IBlock[][] newBlocks = new IBlock[LENGTH][LENGTH];
 
     for (int i = 0; i < LENGTH; i++) {
@@ -119,7 +119,7 @@ public class Tetrimino implements ITetrimino {
   }
 
   @Override
-  public void rotateRight(IField field, int x, int y) {
+  public void rotateRight(int x, int y) {
     IBlock[][] newBlocks = new IBlock[LENGTH][LENGTH];
 
     for (int i = 0; i < LENGTH; i++) {
@@ -133,12 +133,12 @@ public class Tetrimino implements ITetrimino {
   }
 
   @Override
-  public boolean isSettable(IField field, int x, int y) {
+  public boolean isSettable(int x, int y) {
     return field.isSettable(this.blocks, x, y);
   }
 
   @Override
-  public void set(IField field, int x, int y) {
+  public void set(int x, int y) {
     field.set(this.blocks, x, y);
   }
 }

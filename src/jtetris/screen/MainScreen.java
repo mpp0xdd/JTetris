@@ -47,10 +47,10 @@ public class MainScreen extends GameScreen implements KeyListener {
 
   @Override
   protected void runGameLoop() {
-    if (tetrimino.isSettable(field, tp.x, tp.y + 1)) {
+    if (tetrimino.isSettable(tp.x, tp.y + 1)) {
       tp.translate(0, 1);
     } else {
-      tetrimino.set(field, tp.x, tp.y);
+      tetrimino.set(tp.x, tp.y);
       tp.setLocation(ix, iy);
       tetrimino = supplier.get();
     }
@@ -64,31 +64,31 @@ public class MainScreen extends GameScreen implements KeyListener {
   public void keyPressed(KeyEvent e) {
     switch (e.getKeyCode()) {
       case KeyEvent.VK_LEFT -> {
-        if (tetrimino.isSettable(field, tp.x - 1, tp.y)) {
+        if (tetrimino.isSettable(tp.x - 1, tp.y)) {
           tp.translate(-1, 0);
         }
       }
       case KeyEvent.VK_RIGHT -> {
-        if (tetrimino.isSettable(field, tp.x + 1, tp.y)) {
+        if (tetrimino.isSettable(tp.x + 1, tp.y)) {
           tp.translate(1, 0);
         }
       }
       case KeyEvent.VK_UP -> {
-        if (tetrimino.isSettable(field, tp.x, tp.y - 1)) {
+        if (tetrimino.isSettable(tp.x, tp.y - 1)) {
           tp.translate(0, -1);
         }
       }
       case KeyEvent.VK_DOWN -> {
-        if (tetrimino.isSettable(field, tp.x, tp.y + 1)) {
+        if (tetrimino.isSettable(tp.x, tp.y + 1)) {
           tp.translate(0, 1);
         } else {
-          tetrimino.set(field, tp.x, tp.y);
+          tetrimino.set(tp.x, tp.y);
           tp.setLocation(ix, iy);
           tetrimino = supplier.get();
         }
       }
-      case KeyEvent.VK_A -> tetrimino.rotateLeft(field, tp.x, tp.y);
-      case KeyEvent.VK_D -> tetrimino.rotateRight(field, tp.x, tp.y);
+      case KeyEvent.VK_A -> tetrimino.rotateLeft(tp.x, tp.y);
+      case KeyEvent.VK_D -> tetrimino.rotateRight(tp.x, tp.y);
     }
     repaint();
   }
