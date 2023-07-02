@@ -1,7 +1,6 @@
 package jtetris.common;
 
 import java.awt.Graphics;
-import jtetris.component.ColorBlock;
 
 public interface IField {
   int ROWS = 20 + 1;
@@ -9,8 +8,9 @@ public interface IField {
   int WIDTH = COLUMNS * IBlock.SIZE;
   int HEIGHT = ROWS * IBlock.SIZE;
 
-  IBlock WALL = ColorBlock.GRAY;
-  IBlock EMPTY = ColorBlock.BLACK;
+  IBlock wall();
+
+  IBlock empty();
 
   void draw(Graphics g, int x, int y);
 

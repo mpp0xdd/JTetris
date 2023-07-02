@@ -1,4 +1,5 @@
 package jtetris.component;
+
 import java.awt.Graphics;
 import jtetris.common.IBlock;
 import jtetris.common.IField;
@@ -11,12 +12,22 @@ public class Field implements IField {
     for (int i = 0; i < ROWS; i++) {
       for (int j = 0; j < COLUMNS; j++) {
         if (i == ROWS - 1 || j == 0 || j == COLUMNS - 1) {
-          this.field[i][j] = WALL;
+          this.field[i][j] = wall();
         } else {
-          this.field[i][j] = EMPTY;
+          this.field[i][j] = empty();
         }
       }
     }
+  }
+
+  @Override
+  public IBlock wall() {
+    return ColorBlock.GRAY;
+  }
+
+  @Override
+  public IBlock empty() {
+    return ColorBlock.BLACK;
   }
 
   @Override
@@ -33,11 +44,11 @@ public class Field implements IField {
   public boolean isSettable(IBlock[][] blocks, int x, int y) {
     for (int i = 0; i < blocks.length; i++) {
       for (int j = 0; j < blocks[i].length; j++) {
-        if (blocks[i][j].equals(IField.EMPTY)) {
+        if (blocks[i][j].equals(empty())) {
           continue;
         }
         try {
-          if (!this.field[i + y][j + x].equals(IField.EMPTY)) {
+          if (!this.field[i + y][j + x].equals(empty())) {
             return false;
           }
         } catch (ArrayIndexOutOfBoundsException e) {
@@ -54,7 +65,7 @@ public class Field implements IField {
 
     for (int i = 0; i < blocks.length; i++) {
       for (int j = 0; j < blocks[i].length; j++) {
-        if (blocks[i][j].equals(IField.EMPTY)) {
+        if (blocks[i][j].equals(empty())) {
           continue;
         }
         try {
@@ -72,7 +83,7 @@ public class Field implements IField {
     rowLoop:
     for (int i = 0; i < ROWS - 1; i++) {
       for (int j = 1; j < COLUMNS - 1; j++) {
-        if (field[i][j].equals(IField.EMPTY)) {
+        if (field[i][j].equals(empty())) {
           continue rowLoop;
         }
       }

@@ -21,7 +21,7 @@ public class MainScreen extends GameScreen implements KeyListener {
       GameUtilities.loadClip(MainScreen.class.getResource("sounds/bgm.wav"));
 
   private final IField field = new Field();
-  private Supplier<ITetrimino> supplier = new ColorTetriminoSupplier();
+  private Supplier<ITetrimino> supplier = new ColorTetriminoSupplier(field);
   private ITetrimino tetrimino = supplier.get();
   private final int ix = IField.COLUMNS / 2 - Tetrimino.LENGTH / 2;
   private final int iy = -Tetrimino.LENGTH;
