@@ -3,7 +3,6 @@ package jtetris.common;
 import java.awt.Graphics;
 
 public interface ITetrimino {
-  int LENGTH = 4;
 
   void draw(Graphics g, int x, int y);
 

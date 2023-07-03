@@ -1,5 +1,6 @@
 package jtetris.component;
 
+import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Objects;
@@ -25,7 +26,7 @@ public class ColorBlock implements IBlock {
   @Override
   public void draw(Graphics g, int x, int y) {
     g.setColor(this.color);
-    g.fill3DRect(x, y, SIZE, SIZE, false);
+    g.fill3DRect(x, y, BLOCK_SIZE, BLOCK_SIZE, false);
   }
 
   @Override

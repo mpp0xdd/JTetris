@@ -1,5 +1,8 @@
 package jtetris.component;
 
+import static jtetris.common.Constants.BLOCK_SIZE;
+import static jtetris.common.Constants.FIELD_COLUMNS;
+import static jtetris.common.Constants.FIELD_ROWS;
 import java.awt.Graphics;
 import jtetris.common.IBlock;
 import jtetris.common.IField;
@@ -8,10 +11,10 @@ public class Field implements IField {
   private final IBlock[][] field;
 
   public Field() {
-    this.field = new IBlock[ROWS][COLUMNS];
-    for (int i = 0; i < ROWS; i++) {
-      for (int j = 0; j < COLUMNS; j++) {
-        if (i == ROWS - 1 || j == 0 || j == COLUMNS - 1) {
+    this.field = new IBlock[FIELD_ROWS][FIELD_COLUMNS];
+    for (int i = 0; i < FIELD_ROWS; i++) {
+      for (int j = 0; j < FIELD_COLUMNS; j++) {
+        if (i == FIELD_ROWS - 1 || j == 0 || j == FIELD_COLUMNS - 1) {
           this.field[i][j] = wall();
         } else {
           this.field[i][j] = empty();
@@ -32,10 +35,10 @@ public class Field implements IField {
 
   @Override
   public void draw(Graphics g, int x, int y) {
-    for (int i = 0; i < ROWS; i++) {
-      for (int j = 0; j < COLUMNS; j++) {
+    for (int i = 0; i < FIELD_ROWS; i++) {
+      for (int j = 0; j < FIELD_COLUMNS; j++) {
         IBlock block = this.field[i][j];
-        block.draw(g, x + j * IBlock.SIZE, y + i * IBlock.SIZE);
+        block.draw(g, x + j * BLOCK_SIZE, y + i * BLOCK_SIZE);
       }
     }
   }
@@ -81,14 +84,14 @@ public class Field implements IField {
   public int clearLine() {
     int numOfLinesCleared = 0;
     rowLoop:
-    for (int i = 0; i < ROWS - 1; i++) {
-      for (int j = 1; j < COLUMNS - 1; j++) {
+    for (int i = 0; i < FIELD_ROWS - 1; i++) {
+      for (int j = 1; j < FIELD_COLUMNS - 1; j++) {
         if (field[i][j].equals(empty())) {
           continue rowLoop;
         }
       }
       for (int i2 = i; i2 > 0; i2--) {
-        for (int j = 1; j < COLUMNS - 1; j++) {
+        for (int j = 1; j < FIELD_COLUMNS - 1; j++) {
           field[i2][j] = field[i2 - 1][j];
         }
       }

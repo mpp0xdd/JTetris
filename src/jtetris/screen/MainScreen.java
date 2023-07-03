@@ -1,5 +1,9 @@
 package jtetris.screen;
 
+import static jtetris.common.Constants.FIELD_COLUMNS;
+import static jtetris.common.Constants.FIELD_HEIGHT;
+import static jtetris.common.Constants.FIELD_WIDTH;
+import static jtetris.common.Constants.TETRIMINO_LENGTH;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
@@ -12,7 +16,6 @@ import jglib.util.GameUtilities;
 import jtetris.common.IField;
 import jtetris.common.ITetrimino;
 import jtetris.component.Field;
-import jtetris.component.Tetrimino;
 import jtetris.function.ColorTetriminoSupplier;
 
 public class MainScreen extends GameScreen implements KeyListener {
@@ -23,12 +26,12 @@ public class MainScreen extends GameScreen implements KeyListener {
   private final IField field = new Field();
   private Supplier<ITetrimino> supplier = new ColorTetriminoSupplier(field);
   private ITetrimino tetrimino = supplier.get();
-  private final int ix = IField.COLUMNS / 2 - Tetrimino.LENGTH / 2;
-  private final int iy = -Tetrimino.LENGTH;
+  private final int ix = FIELD_COLUMNS / 2 - TETRIMINO_LENGTH / 2;
+  private final int iy = -TETRIMINO_LENGTH;
   private final Point tp = new Point(ix, iy);
 
   public MainScreen() {
-    super(IField.WIDTH, IField.HEIGHT);
+    super(FIELD_WIDTH, FIELD_HEIGHT);
     setGameLoopInterval(250);
     setFocusable(true);
     addKeyListener(this);
