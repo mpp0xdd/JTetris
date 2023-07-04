@@ -1,8 +1,6 @@
 package jtetris.component;
 
 import static jtetris.common.Constants.BLOCK_SIZE;
-import static jtetris.common.Constants.FIELD_COLUMNS;
-import static jtetris.common.Constants.FIELD_ROWS;
 import java.awt.Graphics;
 import jtetris.common.IBlock;
 import jtetris.common.IField;
@@ -11,16 +9,26 @@ public class Field implements IField {
   private final IBlock[][] field;
 
   public Field() {
-    this.field = new IBlock[FIELD_ROWS][FIELD_COLUMNS];
-    for (int i = 0; i < FIELD_ROWS; i++) {
-      for (int j = 0; j < FIELD_COLUMNS; j++) {
-        if (i == FIELD_ROWS - 1 || j == 0 || j == FIELD_COLUMNS - 1) {
+    this.field = new IBlock[rows()][columns()];
+    for (int i = 0; i < rows(); i++) {
+      for (int j = 0; j < columns(); j++) {
+        if (i == rows() - 1 || j == 0 || j == columns() - 1) {
           this.field[i][j] = wall();
         } else {
           this.field[i][j] = empty();
         }
       }
     }
+  }
+
+  @Override
+  public int rows() {
+    return 20 + 1;
+  }
+
+  @Override
+  public int columns() {
+    return 10 + 2;
   }
 
   @Override
@@ -35,8 +43,8 @@ public class Field implements IField {
 
   @Override
   public void draw(Graphics g, int x, int y) {
-    for (int i = 0; i < FIELD_ROWS; i++) {
-      for (int j = 0; j < FIELD_COLUMNS; j++) {
+    for (int i = 0; i < rows(); i++) {
+      for (int j = 0; j < columns(); j++) {
         IBlock block = this.field[i][j];
         block.draw(g, x + j * BLOCK_SIZE, y + i * BLOCK_SIZE);
       }
@@ -84,14 +92,14 @@ public class Field implements IField {
   public int clearLine() {
     int numOfLinesCleared = 0;
     rowLoop:
-    for (int i = 0; i < FIELD_ROWS - 1; i++) {
-      for (int j = 1; j < FIELD_COLUMNS - 1; j++) {
+    for (int i = 0; i < rows() - 1; i++) {
+      for (int j = 1; j < columns() - 1; j++) {
         if (field[i][j].equals(empty())) {
           continue rowLoop;
         }
       }
       for (int i2 = i; i2 > 0; i2--) {
-        for (int j = 1; j < FIELD_COLUMNS - 1; j++) {
+        for (int j = 1; j < columns() - 1; j++) {
           field[i2][j] = field[i2 - 1][j];
         }
       }
