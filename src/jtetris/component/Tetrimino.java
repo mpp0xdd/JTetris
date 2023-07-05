@@ -1,7 +1,6 @@
 package jtetris.component;
 
 import static jtetris.common.Constants.BLOCK_SIZE;
-import static jtetris.common.Constants.TETRIMINO_LENGTH;
 import java.awt.Graphics;
 import java.util.Objects;
 import jtetris.common.IBlock;
@@ -85,10 +84,10 @@ public class Tetrimino implements ITetrimino {
 
   private Tetrimino(IField field) {
     this.field = Objects.requireNonNull(field);
-    this.blocks = new IBlock[TETRIMINO_LENGTH][TETRIMINO_LENGTH];
+    this.blocks = new IBlock[length()][length()];
 
-    for (int i = 0; i < TETRIMINO_LENGTH; i++) {
-      for (int j = 0; j < TETRIMINO_LENGTH; j++) {
+    for (int i = 0; i < length(); i++) {
+      for (int j = 0; j < length(); j++) {
         this.blocks[i][j] = field.empty();
       }
     }
@@ -96,8 +95,8 @@ public class Tetrimino implements ITetrimino {
 
   @Override
   public void draw(Graphics g, int x, int y) {
-    for (int i = 0; i < TETRIMINO_LENGTH; i++) {
-      for (int j = 0; j < TETRIMINO_LENGTH; j++) {
+    for (int i = 0; i < length(); i++) {
+      for (int j = 0; j < length(); j++) {
         IBlock block = this.blocks[i][j];
         if (!block.equals(field.empty())) {
           block.draw(g, (x + j) * BLOCK_SIZE, (y + i) * BLOCK_SIZE);
@@ -108,11 +107,11 @@ public class Tetrimino implements ITetrimino {
 
   @Override
   public void rotateLeft(int x, int y) {
-    IBlock[][] newBlocks = new IBlock[TETRIMINO_LENGTH][TETRIMINO_LENGTH];
+    IBlock[][] newBlocks = new IBlock[length()][length()];
 
-    for (int i = 0; i < TETRIMINO_LENGTH; i++) {
-      for (int j = 0; j < TETRIMINO_LENGTH; j++) {
-        newBlocks[TETRIMINO_LENGTH - 1 - j][i] = this.blocks[i][j];
+    for (int i = 0; i < length(); i++) {
+      for (int j = 0; j < length(); j++) {
+        newBlocks[length() - 1 - j][i] = this.blocks[i][j];
       }
     }
     if (field.isSettable(newBlocks, x, y)) {
@@ -122,11 +121,11 @@ public class Tetrimino implements ITetrimino {
 
   @Override
   public void rotateRight(int x, int y) {
-    IBlock[][] newBlocks = new IBlock[TETRIMINO_LENGTH][TETRIMINO_LENGTH];
+    IBlock[][] newBlocks = new IBlock[length()][length()];
 
-    for (int i = 0; i < TETRIMINO_LENGTH; i++) {
-      for (int j = 0; j < TETRIMINO_LENGTH; j++) {
-        newBlocks[j][TETRIMINO_LENGTH - 1 - i] = this.blocks[i][j];
+    for (int i = 0; i < length(); i++) {
+      for (int j = 0; j < length(); j++) {
+        newBlocks[j][length() - 1 - i] = this.blocks[i][j];
       }
     }
     if (field.isSettable(newBlocks, x, y)) {

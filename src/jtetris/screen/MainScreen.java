@@ -1,6 +1,5 @@
 package jtetris.screen;
 
-import static jtetris.common.Constants.TETRIMINO_LENGTH;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
@@ -23,8 +22,8 @@ public class MainScreen extends GameScreen implements KeyListener {
   private final IField field = new Field();
   private Supplier<ITetrimino> supplier = new ColorTetriminoSupplier(field);
   private ITetrimino tetrimino = supplier.get();
-  private final int ix = field.columns() / 2 - TETRIMINO_LENGTH / 2;
-  private final int iy = -TETRIMINO_LENGTH;
+  private final int ix = field.columns() / 2 - tetrimino.length() / 2;
+  private final int iy = -tetrimino.length();
   private final Point tp = new Point(ix, iy);
 
   public MainScreen() {

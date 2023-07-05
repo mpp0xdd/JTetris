@@ -7,5 +7,4 @@ public final class Constants {
   }
 
   public static final int BLOCK_SIZE = 30;
-  public static final int TETRIMINO_LENGTH = 4;
 }
