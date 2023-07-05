@@ -2,6 +2,7 @@ package jtetris.component;
 
 import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.util.Objects;
 import jtetris.common.IBlock;
 import jtetris.common.IField;
@@ -81,10 +82,12 @@ public class Tetrimino implements ITetrimino {
 
   private final IField field;
   private IBlock[][] blocks;
+  private final Point point;
 
   private Tetrimino(IField field) {
     this.field = Objects.requireNonNull(field);
     this.blocks = new IBlock[length()][length()];
+    this.point = new Point(field.columns() / 2 - length() / 2, -length());
 
     for (int i = 0; i < length(); i++) {
       for (int j = 0; j < length(); j++) {
@@ -94,19 +97,55 @@ public class Tetrimino implements ITetrimino {
   }
 
   @Override
-  public void draw(Graphics g, int x, int y) {
+  public void draw(Graphics g) {
     for (int i = 0; i < length(); i++) {
       for (int j = 0; j < length(); j++) {
         IBlock block = this.blocks[i][j];
         if (!block.equals(field.empty())) {
-          block.draw(g, (x + j) * BLOCK_SIZE, (y + i) * BLOCK_SIZE);
+          block.draw(g, (point.x + j) * BLOCK_SIZE, (point.y + i) * BLOCK_SIZE);
         }
       }
     }
   }
 
   @Override
-  public void rotateLeft(int x, int y) {
+  public boolean moveLeft() {
+    if (field.isSettable(blocks, point.x - 1, 0)) {
+      point.translate(-1, 0);
+      return true;
+    }
+    return false;
+  }
+
+  @Override
+  public boolean moveRight() {
+    if (field.isSettable(blocks, point.x + 1, 0)) {
+      point.translate(1, 0);
+      return true;
+    }
+    return false;
+  }
+
+  @Override
+  public boolean moveUp() {
+    if (field.isSettable(blocks, point.x, point.y - 1)) {
+      point.translate(0, -1);
+      return true;
+    }
+    return false;
+  }
+
+  @Override
+  public boolean moveDown() {
+    if (field.isSettable(blocks, point.x, point.y + 1)) {
+      point.translate(0, 1);
+      return true;
+    }
+    return false;
+  }
+
+  @Override
+  public void rotateLeft() {
     IBlock[][] newBlocks = new IBlock[length()][length()];
 
     for (int i = 0; i < length(); i++) {
@@ -114,13 +153,13 @@ public class Tetrimino implements ITetrimino {
         newBlocks[length() - 1 - j][i] = this.blocks[i][j];
       }
     }
-    if (field.isSettable(newBlocks, x, y)) {
+    if (field.isSettable(newBlocks, point.x, point.y)) {
       this.blocks = newBlocks;
     }
   }
 
   @Override
-  public void rotateRight(int x, int y) {
+  public void rotateRight() {
     IBlock[][] newBlocks = new IBlock[length()][length()];
 
     for (int i = 0; i < length(); i++) {
@@ -128,18 +167,13 @@ public class Tetrimino implements ITetrimino {
         newBlocks[j][length() - 1 - i] = this.blocks[i][j];
       }
     }
-    if (field.isSettable(newBlocks, x, y)) {
+    if (field.isSettable(newBlocks, point.x, point.y)) {
       this.blocks = newBlocks;
     }
   }
 
   @Override
-  public boolean isSettable(int x, int y) {
-    return field.isSettable(this.blocks, x, y);
-  }
-
-  @Override
-  public void set(int x, int y) {
-    field.set(this.blocks, x, y);
+  public void set() {
+    field.set(this.blocks, point.x, point.y);
   }
 }

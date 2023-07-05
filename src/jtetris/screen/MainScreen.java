@@ -1,7 +1,6 @@
 package jtetris.screen;
 
 import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Optional;
@@ -22,9 +21,6 @@ public class MainScreen extends GameScreen implements KeyListener {
   private final IField field = new Field();
   private Supplier<ITetrimino> supplier = new ColorTetriminoSupplier(field);
   private ITetrimino tetrimino = supplier.get();
-  private final int ix = field.columns() / 2 - tetrimino.length() / 2;
-  private final int iy = -tetrimino.length();
-  private final Point tp = new Point(ix, iy);
 
   public MainScreen() {
     setScreenSize(field.width(), field.height());
@@ -41,16 +37,13 @@ public class MainScreen extends GameScreen implements KeyListener {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     field.draw(g, 0, 0);
-    tetrimino.draw(g, tp.x, tp.y);
+    tetrimino.draw(g);
   }
 
   @Override
   protected void runGameLoop() {
-    if (tetrimino.isSettable(tp.x, tp.y + 1)) {
-      tp.translate(0, 1);
-    } else {
-      tetrimino.set(tp.x, tp.y);
-      tp.setLocation(ix, iy);
+    if (!tetrimino.moveDown()) {
+      tetrimino.set();
       tetrimino = supplier.get();
     }
 
@@ -63,31 +56,22 @@ public class MainScreen extends GameScreen implements KeyListener {
   public void keyPressed(KeyEvent e) {
     switch (e.getKeyCode()) {
       case KeyEvent.VK_LEFT -> {
-        if (tetrimino.isSettable(tp.x - 1, tp.y)) {
-          tp.translate(-1, 0);
-        }
+        tetrimino.moveLeft();
       }
       case KeyEvent.VK_RIGHT -> {
-        if (tetrimino.isSettable(tp.x + 1, tp.y)) {
-          tp.translate(1, 0);
-        }
+        tetrimino.moveRight();
       }
       case KeyEvent.VK_UP -> {
-        if (tetrimino.isSettable(tp.x, tp.y - 1)) {
-          tp.translate(0, -1);
-        }
+        tetrimino.moveUp();
       }
       case KeyEvent.VK_DOWN -> {
-        if (tetrimino.isSettable(tp.x, tp.y + 1)) {
-          tp.translate(0, 1);
-        } else {
-          tetrimino.set(tp.x, tp.y);
-          tp.setLocation(ix, iy);
+        if (!tetrimino.moveDown()) {
+          tetrimino.set();
           tetrimino = supplier.get();
         }
       }
-      case KeyEvent.VK_A -> tetrimino.rotateLeft(tp.x, tp.y);
-      case KeyEvent.VK_D -> tetrimino.rotateRight(tp.x, tp.y);
+      case KeyEvent.VK_A -> tetrimino.rotateLeft();
+      case KeyEvent.VK_D -> tetrimino.rotateRight();
     }
     repaint();
   }

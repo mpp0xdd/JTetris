@@ -8,13 +8,19 @@ public interface ITetrimino {
     return 4;
   }
 
-  void draw(Graphics g, int x, int y);
+  void draw(Graphics g);
 
-  void rotateLeft(int x, int y);
+  boolean moveLeft();
 
-  void rotateRight(int x, int y);
+  boolean moveRight();
 
-  boolean isSettable(int x, int y);
+  boolean moveUp();
 
-  void set(int x, int y);
+  boolean moveDown();
+
+  void rotateLeft();
+
+  void rotateRight();
+
+  void set();
 }
