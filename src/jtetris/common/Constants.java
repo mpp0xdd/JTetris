@@ -7,4 +7,5 @@ public final class Constants {
   }
 
   public static final int BLOCK_SIZE = 30;
+  public static final long GAME_LOOP_INTERVAL = 250L;
 }
