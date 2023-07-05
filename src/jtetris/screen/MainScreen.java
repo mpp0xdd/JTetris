@@ -42,34 +42,18 @@ public class MainScreen extends GameScreen implements KeyListener {
 
   @Override
   protected void runGameLoop() {
-    if (!tetrimino.moveDown()) {
-      tetrimino.fix();
-      tetrimino = supplier.get();
-    }
-
+    moveDownTetrimino();
     field.clearLine();
-
     repaint();
   }
 
   @Override
   public void keyPressed(KeyEvent e) {
     switch (e.getKeyCode()) {
-      case KeyEvent.VK_LEFT -> {
-        tetrimino.moveLeft();
-      }
-      case KeyEvent.VK_RIGHT -> {
-        tetrimino.moveRight();
-      }
-      case KeyEvent.VK_UP -> {
-        tetrimino.moveUp();
-      }
-      case KeyEvent.VK_DOWN -> {
-        if (!tetrimino.moveDown()) {
-          tetrimino.fix();
-          tetrimino = supplier.get();
-        }
-      }
+      case KeyEvent.VK_LEFT -> tetrimino.moveLeft();
+      case KeyEvent.VK_RIGHT -> tetrimino.moveRight();
+      case KeyEvent.VK_UP -> tetrimino.moveUp();
+      case KeyEvent.VK_DOWN -> moveDownTetrimino();
       case KeyEvent.VK_A -> tetrimino.rotateLeft();
       case KeyEvent.VK_D -> tetrimino.rotateRight();
     }
@@ -81,4 +65,11 @@ public class MainScreen extends GameScreen implements KeyListener {
 
   @Override
   public void keyTyped(KeyEvent e) {}
+
+  private void moveDownTetrimino() {
+    if (!tetrimino.moveDown()) {
+      tetrimino.fix();
+      tetrimino = supplier.get();
+    }
+  }
 }
