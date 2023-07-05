@@ -22,5 +22,7 @@ public interface ITetrimino {
 
   void rotateRight();
 
-  void set();
+  boolean isFixed();
+
+  void fix();
 }

@@ -83,11 +83,13 @@ public class Tetrimino implements ITetrimino {
   private final IField field;
   private IBlock[][] blocks;
   private final Point point;
+  private boolean isFixed;
 
   private Tetrimino(IField field) {
     this.field = Objects.requireNonNull(field);
     this.blocks = new IBlock[length()][length()];
     this.point = new Point(field.columns() / 2 - length() / 2, -length());
+    this.isFixed = false;
 
     for (int i = 0; i < length(); i++) {
       for (int j = 0; j < length(); j++) {
@@ -110,6 +112,10 @@ public class Tetrimino implements ITetrimino {
 
   @Override
   public boolean moveLeft() {
+    if (isFixed()) {
+      return false;
+    }
+
     if (field.isSettable(blocks, point.x - 1, 0)) {
       point.translate(-1, 0);
       return true;
@@ -119,6 +125,10 @@ public class Tetrimino implements ITetrimino {
 
   @Override
   public boolean moveRight() {
+    if (isFixed()) {
+      return false;
+    }
+
     if (field.isSettable(blocks, point.x + 1, 0)) {
       point.translate(1, 0);
       return true;
@@ -128,6 +138,10 @@ public class Tetrimino implements ITetrimino {
 
   @Override
   public boolean moveUp() {
+    if (isFixed()) {
+      return false;
+    }
+
     if (field.isSettable(blocks, point.x, point.y - 1)) {
       point.translate(0, -1);
       return true;
@@ -137,6 +151,10 @@ public class Tetrimino implements ITetrimino {
 
   @Override
   public boolean moveDown() {
+    if (isFixed()) {
+      return false;
+    }
+
     if (field.isSettable(blocks, point.x, point.y + 1)) {
       point.translate(0, 1);
       return true;
@@ -146,6 +164,10 @@ public class Tetrimino implements ITetrimino {
 
   @Override
   public void rotateLeft() {
+    if (isFixed()) {
+      return;
+    }
+
     IBlock[][] newBlocks = new IBlock[length()][length()];
 
     for (int i = 0; i < length(); i++) {
@@ -160,6 +182,10 @@ public class Tetrimino implements ITetrimino {
 
   @Override
   public void rotateRight() {
+    if (isFixed()) {
+      return;
+    }
+
     IBlock[][] newBlocks = new IBlock[length()][length()];
 
     for (int i = 0; i < length(); i++) {
@@ -173,7 +199,15 @@ public class Tetrimino implements ITetrimino {
   }
 
   @Override
-  public void set() {
-    field.set(this.blocks, point.x, point.y);
+  public boolean isFixed() {
+    return isFixed;
+  }
+
+  @Override
+  public void fix() {
+    if (!isFixed()) {
+      field.set(this.blocks, point.x, point.y);
+      isFixed = true;
+    }
   }
 }

@@ -43,7 +43,7 @@ public class MainScreen extends GameScreen implements KeyListener {
   @Override
   protected void runGameLoop() {
     if (!tetrimino.moveDown()) {
-      tetrimino.set();
+      tetrimino.fix();
       tetrimino = supplier.get();
     }
 
@@ -66,7 +66,7 @@ public class MainScreen extends GameScreen implements KeyListener {
       }
       case KeyEvent.VK_DOWN -> {
         if (!tetrimino.moveDown()) {
-          tetrimino.set();
+          tetrimino.fix();
           tetrimino = supplier.get();
         }
       }
