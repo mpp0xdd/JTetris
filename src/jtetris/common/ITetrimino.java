@@ -10,11 +10,11 @@ public interface ITetrimino {
 
   void draw(Graphics g);
 
-  boolean moveLeft();
+  void moveLeft();
 
-  boolean moveRight();
+  void moveRight();
 
-  boolean moveUp();
+  void moveUp();
 
   boolean moveDown();
 

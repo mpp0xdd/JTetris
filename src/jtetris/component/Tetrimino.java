@@ -111,42 +111,36 @@ public class Tetrimino implements ITetrimino {
   }
 
   @Override
-  public boolean moveLeft() {
+  public void moveLeft() {
     if (isFixed()) {
-      return false;
+      return;
     }
 
     if (field.isSettable(blocks, point.x - 1, 0)) {
       point.translate(-1, 0);
-      return true;
     }
-    return false;
   }
 
   @Override
-  public boolean moveRight() {
+  public void moveRight() {
     if (isFixed()) {
-      return false;
+      return;
     }
 
     if (field.isSettable(blocks, point.x + 1, 0)) {
       point.translate(1, 0);
-      return true;
     }
-    return false;
   }
 
   @Override
-  public boolean moveUp() {
+  public void moveUp() {
     if (isFixed()) {
-      return false;
+      return;
     }
 
     if (field.isSettable(blocks, point.x, point.y - 1)) {
       point.translate(0, -1);
-      return true;
     }
-    return false;
   }
 
   @Override
