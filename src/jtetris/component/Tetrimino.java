@@ -141,7 +141,7 @@ public class Tetrimino implements ITetrimino {
       return;
     }
 
-    if (field.isSettable(blocks, point.x - 1, 0)) {
+    if (field.isSettable(blocks, point.x - 1, point.y)) {
       point.translate(-1, 0);
     }
   }
@@ -152,7 +152,7 @@ public class Tetrimino implements ITetrimino {
       return;
     }
 
-    if (field.isSettable(blocks, point.x + 1, 0)) {
+    if (field.isSettable(blocks, point.x + 1, point.y)) {
       point.translate(1, 0);
     }
   }
