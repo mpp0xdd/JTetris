@@ -117,9 +117,7 @@ public class Tetrimino implements ITetrimino {
   public void drawGhost(Graphics g) {
     // Copy Process
     Tetrimino ghost = new Tetrimino(field);
-    for (int i = 0; i < length(); i++) {
-      System.arraycopy(this.blocks[i], 0, ghost.blocks[i], 0, length());
-    }
+    ghost.blocks = this.blocks;
     ghost.point.setLocation(this.point);
     ghost.isFixed = this.isFixed();
 
