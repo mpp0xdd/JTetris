@@ -159,17 +159,6 @@ public class Tetrimino implements ITetrimino {
   }
 
   @Override
-  public void moveUp() {
-    if (isFixed()) {
-      return;
-    }
-
-    if (field.isSettable(blocks, point.x, point.y - 1)) {
-      point.translate(0, -1);
-    }
-  }
-
-  @Override
   public boolean moveDown() {
     if (isFixed()) {
       return false;

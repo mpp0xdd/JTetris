@@ -16,8 +16,6 @@ public interface ITetrimino {
 
   void moveRight();
 
-  void moveUp();
-
   boolean moveDown();
 
   void rotateLeft();

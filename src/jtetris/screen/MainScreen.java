@@ -54,7 +54,6 @@ public class MainScreen extends GameScreen implements KeyListener {
     switch (e.getKeyCode()) {
       case KeyEvent.VK_LEFT -> tetrimino.moveLeft();
       case KeyEvent.VK_RIGHT -> tetrimino.moveRight();
-      case KeyEvent.VK_UP -> tetrimino.moveUp();
       case KeyEvent.VK_DOWN -> moveDownTetrimino();
       case KeyEvent.VK_A -> tetrimino.rotateLeft();
       case KeyEvent.VK_D -> tetrimino.rotateRight();
