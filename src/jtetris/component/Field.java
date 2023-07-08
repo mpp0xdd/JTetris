@@ -2,13 +2,16 @@ package jtetris.component;
 
 import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.Graphics;
+import java.awt.Point;
 import jtetris.common.IBlock;
 import jtetris.common.IField;
 
 public class Field implements IField {
+  private final Point point;
   private final IBlock[][] field;
 
-  public Field() {
+  public Field(int x, int y) {
+    this.point = new Point(x, y);
     this.field = new IBlock[rows()][columns()];
     for (int i = 0; i < rows(); i++) {
       for (int j = 0; j < columns(); j++) {
@@ -42,11 +45,11 @@ public class Field implements IField {
   }
 
   @Override
-  public void draw(Graphics g, int x, int y) {
+  public void draw(Graphics g) {
     for (int i = 0; i < rows(); i++) {
       for (int j = 0; j < columns(); j++) {
         IBlock block = this.field[i][j];
-        block.draw(g, x + j * BLOCK_SIZE, y + i * BLOCK_SIZE);
+        block.draw(g, point.x + j * BLOCK_SIZE, point.y + i * BLOCK_SIZE);
       }
     }
   }

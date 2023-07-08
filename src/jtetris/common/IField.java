@@ -21,7 +21,7 @@ public interface IField {
 
   IBlock empty();
 
-  void draw(Graphics g, int x, int y);
+  void draw(Graphics g);
 
   boolean isSettable(IBlock[][] blocks, int x, int y);
 

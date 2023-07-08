@@ -19,7 +19,7 @@ public class MainScreen extends GameScreen implements KeyListener {
   private final Optional<Clip> bgmClip =
       GameUtilities.loadClip(MainScreen.class.getResource("sounds/bgm.wav"));
 
-  private final IField field = new Field();
+  private final IField field = new Field(0, 0);
   private Supplier<ITetrimino> supplier = new ColorTetriminoSupplier(field);
   private ITetrimino tetrimino = supplier.get();
 
@@ -37,7 +37,7 @@ public class MainScreen extends GameScreen implements KeyListener {
   @Override
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
-    field.draw(g, 0, 0);
+    field.draw(g);
     tetrimino.draw(g);
     tetrimino.drawGhost(g);
   }
