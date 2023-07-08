@@ -10,6 +10,8 @@ public interface ITetrimino {
 
   void draw(Graphics g);
 
+  void drawGhost(Graphics g);
+
   void moveLeft();
 
   void moveRight();

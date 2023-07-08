@@ -39,6 +39,7 @@ public class MainScreen extends GameScreen implements KeyListener {
     super.paintComponent(g);
     field.draw(g, 0, 0);
     tetrimino.draw(g);
+    tetrimino.drawGhost(g);
   }
 
   @Override

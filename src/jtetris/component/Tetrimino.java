@@ -1,7 +1,9 @@
 package jtetris.component;
 
 import static jtetris.common.Constants.BLOCK_SIZE;
+import java.awt.AlphaComposite;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.Objects;
 import jtetris.common.IBlock;
@@ -108,6 +110,25 @@ public class Tetrimino implements ITetrimino {
         }
       }
     }
+  }
+
+  @Override
+  public void drawGhost(Graphics g) {
+    // Copy Process
+    Tetrimino ghost = new Tetrimino(field);
+    for (int i = 0; i < length(); i++) {
+      System.arraycopy(this.blocks[i], 0, ghost.blocks[i], 0, length());
+    }
+    ghost.point.setLocation(this.point);
+    ghost.isFixed = this.isFixed();
+
+    // Move the ghost to the bottom of the field
+    while (ghost.moveDown()) {}
+    ghost.isFixed = true;
+
+    // Drawing with transparency set
+    ((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.25f));
+    ghost.draw(g);
   }
 
   @Override
