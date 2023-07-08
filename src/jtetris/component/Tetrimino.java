@@ -2,6 +2,7 @@ package jtetris.component;
 
 import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.AlphaComposite;
+import java.awt.Composite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -127,8 +128,11 @@ public class Tetrimino implements ITetrimino {
     ghost.isFixed = true;
 
     // Drawing with transparency set
-    ((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.25f));
+    Graphics2D g2 = ((Graphics2D) g);
+    Composite backup = g2.getComposite();
+    g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.25f));
     ghost.draw(g);
+    g2.setComposite(backup);
   }
 
   @Override
