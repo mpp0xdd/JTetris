@@ -2,6 +2,7 @@ package jtetris.common;
 
 import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.Graphics;
+import java.awt.Point;
 
 public interface IField {
 
@@ -20,6 +21,8 @@ public interface IField {
   IBlock wall();
 
   IBlock empty();
+
+  Point getLocation();
 
   void draw(Graphics g);
 

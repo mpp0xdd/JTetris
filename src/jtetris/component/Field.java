@@ -45,6 +45,11 @@ public class Field implements IField {
   }
 
   @Override
+  public Point getLocation() {
+    return point.getLocation();
+  }
+
+  @Override
   public void draw(Graphics g) {
     for (int i = 0; i < rows(); i++) {
       for (int j = 0; j < columns(); j++) {

@@ -107,7 +107,10 @@ public class Tetrimino implements ITetrimino {
       for (int j = 0; j < length(); j++) {
         IBlock block = this.blocks[i][j];
         if (!block.equals(field.empty())) {
-          block.draw(g, (point.x + j) * BLOCK_SIZE, (point.y + i) * BLOCK_SIZE);
+          block.draw(
+              g,
+              field.getLocation().x + (point.x + j) * BLOCK_SIZE,
+              field.getLocation().y + (point.y + i) * BLOCK_SIZE);
         }
       }
     }
