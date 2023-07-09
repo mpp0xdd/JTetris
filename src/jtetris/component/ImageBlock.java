@@ -7,26 +7,18 @@ import java.net.URL;
 import java.util.Objects;
 import jglib.util.GameUtilities;
 import jtetris.common.IBlock;
+import jtetris.factories.ImageFactory;
 
 public class ImageBlock implements IBlock {
-  public static final IBlock GRAY =
-      new ImageBlock(ImageBlock.class.getResource("images/gray_block.png"));
-  public static final IBlock BLACK =
-      new ImageBlock(ImageBlock.class.getResource("images/black_block.png"));
-  public static final IBlock LIGHT_BLUE =
-      new ImageBlock(ImageBlock.class.getResource("images/light_blue_block.png"));
-  public static final IBlock YELLOW =
-      new ImageBlock(ImageBlock.class.getResource("images/yellow_block.png"));
-  public static final IBlock GREEN =
-      new ImageBlock(ImageBlock.class.getResource("images/green_block.png"));
-  public static final IBlock RED =
-      new ImageBlock(ImageBlock.class.getResource("images/red_block.png"));
-  public static final IBlock BLUE =
-      new ImageBlock(ImageBlock.class.getResource("images/blue_block.png"));
-  public static final IBlock ORANGE =
-      new ImageBlock(ImageBlock.class.getResource("images/orange_block.png"));
-  public static final IBlock PURPLE =
-      new ImageBlock(ImageBlock.class.getResource("images/purple_block.png"));
+  public static final IBlock GRAY = new ImageBlock(ImageFactory.grayBlockImage());
+  public static final IBlock BLACK = new ImageBlock(ImageFactory.blackBlockImage());
+  public static final IBlock LIGHT_BLUE = new ImageBlock(ImageFactory.lightBlueBlockImage());
+  public static final IBlock YELLOW = new ImageBlock(ImageFactory.yellowBlockImage());
+  public static final IBlock GREEN = new ImageBlock(ImageFactory.greenBlockImage());
+  public static final IBlock RED = new ImageBlock(ImageFactory.redBlockImage());
+  public static final IBlock BLUE = new ImageBlock(ImageFactory.blueBlockImage());
+  public static final IBlock ORANGE = new ImageBlock(ImageFactory.orangeBlockImage());
+  public static final IBlock PURPLE = new ImageBlock(ImageFactory.purpleBlockImage());
 
   private final BufferedImage image;
 
