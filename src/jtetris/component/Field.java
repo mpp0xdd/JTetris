@@ -24,6 +24,10 @@ public class Field implements IField {
     }
   }
 
+  public Field() {
+    this(0, 0);
+  }
+
   @Override
   public int rows() {
     return 20 + 1;

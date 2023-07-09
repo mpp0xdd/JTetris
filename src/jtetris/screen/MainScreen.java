@@ -15,7 +15,7 @@ import jtetris.function.ColorTetriminoSupplier;
 
 public class MainScreen extends GameScreen implements KeyListener {
 
-  private final IField field = new Field(0, 0);
+  private final IField field = new Field();
   private Supplier<ITetrimino> supplier = new ColorTetriminoSupplier(field);
   private ITetrimino tetrimino = supplier.get();
 
