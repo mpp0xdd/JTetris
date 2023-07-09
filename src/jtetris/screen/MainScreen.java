@@ -31,7 +31,11 @@ public class MainScreen extends GameScreen implements KeyListener {
   }
 
   public void playBGM() {
-    bgmClip.ifPresent(GameUtilities::repeatClip);
+    bgmClip.ifPresent(
+        bgm -> {
+          GameUtilities.setVolume(bgm, 0.7f);
+          GameUtilities.repeatClip(bgm);
+        });
   }
 
   @Override
