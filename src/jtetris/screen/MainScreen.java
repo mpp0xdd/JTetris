@@ -4,20 +4,16 @@ import static jtetris.common.Constants.GAME_LOOP_INTERVAL;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Optional;
 import java.util.function.Supplier;
-import javax.sound.sampled.Clip;
 import jglib.component.GameScreen;
 import jglib.util.GameUtilities;
 import jtetris.common.IField;
 import jtetris.common.ITetrimino;
 import jtetris.component.Field;
+import jtetris.factories.SoundFactory;
 import jtetris.function.ColorTetriminoSupplier;
 
 public class MainScreen extends GameScreen implements KeyListener {
-
-  private final Optional<Clip> bgmClip =
-      GameUtilities.loadClip(MainScreen.class.getResource("sounds/bgm.wav"));
 
   private final IField field = new Field(0, 0);
   private Supplier<ITetrimino> supplier = new ColorTetriminoSupplier(field);
@@ -31,11 +27,7 @@ public class MainScreen extends GameScreen implements KeyListener {
   }
 
   public void playBGM() {
-    bgmClip.ifPresent(
-        bgm -> {
-          GameUtilities.setVolume(bgm, 0.7f);
-          GameUtilities.repeatClip(bgm);
-        });
+    SoundFactory.mainScreenBgmClip().ifPresent(GameUtilities::repeatClip);
   }
 
   @Override
