@@ -5,17 +5,18 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Objects;
 import jtetris.common.IBlock;
+import jtetris.factories.ColorFactory;
 
 public class ColorBlock implements IBlock {
-  public static final IBlock GRAY = new ColorBlock(new Color(119, 119, 119));
-  public static final IBlock BLACK = new ColorBlock(new Color(0, 0, 0));
-  public static final IBlock LIGHT_BLUE = new ColorBlock(new Color(0, 204, 204));
-  public static final IBlock YELLOW = new ColorBlock(new Color(204, 204, 0));
-  public static final IBlock GREEN = new ColorBlock(new Color(0, 204, 0));
-  public static final IBlock RED = new ColorBlock(new Color(204, 0, 0));
-  public static final IBlock BLUE = new ColorBlock(new Color(0, 0, 204));
-  public static final IBlock ORANGE = new ColorBlock(new Color(204, 102, 0));
-  public static final IBlock PURPLE = new ColorBlock(new Color(153, 0, 204));
+  public static final IBlock GRAY = new ColorBlock(ColorFactory.gray());
+  public static final IBlock BLACK = new ColorBlock(ColorFactory.black());
+  public static final IBlock LIGHT_BLUE = new ColorBlock(ColorFactory.lightBlue());
+  public static final IBlock YELLOW = new ColorBlock(ColorFactory.yellow());
+  public static final IBlock GREEN = new ColorBlock(ColorFactory.green());
+  public static final IBlock RED = new ColorBlock(ColorFactory.red());
+  public static final IBlock BLUE = new ColorBlock(ColorFactory.blue());
+  public static final IBlock ORANGE = new ColorBlock(ColorFactory.orange());
+  public static final IBlock PURPLE = new ColorBlock(ColorFactory.purple());
 
   private final Color color;
 

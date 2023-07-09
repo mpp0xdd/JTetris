@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import jglib.util.GameUtilities;
 
 public final class ImageFactory {
+
   private ImageFactory() {
     // restrict instantiation
   }
