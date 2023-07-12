@@ -1,4 +1,4 @@
-package jtetris.factories;
+package jtetris.factory;
 
 import java.awt.Color;
 

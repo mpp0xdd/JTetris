@@ -1,4 +1,4 @@
-package jtetris.factories;
+package jtetris.factory;
 
 import java.util.Optional;
 import javax.sound.sampled.Clip;
