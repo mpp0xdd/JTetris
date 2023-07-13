@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.Objects;
 import jglib.util.GameUtilities;
 import jtetris.common.IBlock;
-import jtetris.factory.ImageFactory;
+import jtetris.resource.ImageFactory;
 
 public class ImageBlock implements IBlock {
   public static final IBlock GRAY = new ImageBlock(ImageFactory.grayBlockImage());

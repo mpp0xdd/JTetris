@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Objects;
 import jtetris.common.IBlock;
-import jtetris.factory.ColorFactory;
+import jtetris.resource.ColorFactory;
 
 public class ColorBlock implements IBlock {
   public static final IBlock GRAY = new ColorBlock(ColorFactory.gray());
