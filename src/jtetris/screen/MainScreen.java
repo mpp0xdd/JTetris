@@ -31,7 +31,7 @@ public class MainScreen extends GameScreen implements KeyListener {
   }
 
   @Override
-  public void paintComponent(Graphics g) {
+  protected void paintComponent(Graphics g) {
     super.paintComponent(g);
     field.draw(g);
     tetrimino.draw(g);
