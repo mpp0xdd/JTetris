@@ -1,19 +1,16 @@
 package jtetris.function;
 
-import java.util.Objects;
 import java.util.Random;
-import java.util.function.Supplier;
 import jtetris.common.IField;
 import jtetris.common.ITetrimino;
 import jtetris.component.ImageBlock;
 import jtetris.component.Tetrimino;
 
-public class ImageTetriminoSupplier implements Supplier<ITetrimino> {
-  private IField field;
+public class ImageTetriminoSupplier extends TetriminoSupplierBase {
   private Random rnd = new Random();
 
   public ImageTetriminoSupplier(IField field) {
-    this.field = Objects.requireNonNull(field);
+    super(field);
   }
 
   @Override

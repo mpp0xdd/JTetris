@@ -4,19 +4,19 @@ import static jtetris.common.Constants.GAME_LOOP_INTERVAL;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.function.Supplier;
 import jglib.component.GameScreen;
 import jglib.util.GameUtilities;
 import jtetris.common.IField;
 import jtetris.common.ITetrimino;
 import jtetris.component.Field;
 import jtetris.function.ColorTetriminoSupplier;
+import jtetris.function.TetriminoSupplier;
 import jtetris.resource.SoundFactory;
 
 public class MainScreen extends GameScreen implements KeyListener {
 
   private final IField field = new Field();
-  private Supplier<ITetrimino> supplier = new ColorTetriminoSupplier(field);
+  private TetriminoSupplier supplier = new ColorTetriminoSupplier(field);
   private ITetrimino tetrimino = supplier.get();
 
   public MainScreen() {
