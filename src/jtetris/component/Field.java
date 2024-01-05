@@ -6,7 +6,7 @@ import java.awt.Point;
 import jtetris.common.IBlock;
 import jtetris.common.IField;
 
-public class Field implements IField {
+class Field implements IField {
   private final Point point;
   private final IBlock[][] field;
 

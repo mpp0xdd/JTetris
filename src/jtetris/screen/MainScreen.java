@@ -9,13 +9,13 @@ import jglib.util.GameUtilities;
 import jtetris.common.IField;
 import jtetris.common.ITetrimino;
 import jtetris.common.TetriminoSupplier;
-import jtetris.component.Field;
+import jtetris.component.FieldFactory;
 import jtetris.function.TetriminoSupplierFactory;
 import jtetris.resource.SoundFactory;
 
 public class MainScreen extends GameScreen implements KeyListener {
 
-  private final IField field = new Field();
+  private final IField field = FieldFactory.create();
   private TetriminoSupplier supplier = TetriminoSupplierFactory.create(field);
   private ITetrimino tetrimino = supplier.get();
 
