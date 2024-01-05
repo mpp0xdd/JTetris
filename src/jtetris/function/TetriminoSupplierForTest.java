@@ -6,7 +6,7 @@ import jtetris.common.ITetrimino;
 import jtetris.component.ColorBlock;
 import jtetris.component.Tetrimino;
 
-public class TetriminoSupplierForTest extends TetriminoSupplierBase {
+class TetriminoSupplierForTest extends TetriminoSupplierBase {
   private Random rnd = new Random();
 
   public TetriminoSupplierForTest(IField field) {

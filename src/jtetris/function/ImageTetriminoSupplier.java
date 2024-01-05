@@ -6,7 +6,7 @@ import jtetris.common.ITetrimino;
 import jtetris.component.ImageBlock;
 import jtetris.component.Tetrimino;
 
-public class ImageTetriminoSupplier extends TetriminoSupplierBase {
+class ImageTetriminoSupplier extends TetriminoSupplierBase {
   private Random rnd = new Random();
 
   public ImageTetriminoSupplier(IField field) {
