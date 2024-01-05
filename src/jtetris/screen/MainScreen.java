@@ -8,9 +8,9 @@ import jglib.component.GameScreen;
 import jglib.util.GameUtilities;
 import jtetris.common.IField;
 import jtetris.common.ITetrimino;
+import jtetris.common.TetriminoSupplier;
 import jtetris.component.Field;
 import jtetris.function.ColorTetriminoSupplier;
-import jtetris.function.TetriminoSupplier;
 import jtetris.resource.SoundFactory;
 
 public class MainScreen extends GameScreen implements KeyListener {

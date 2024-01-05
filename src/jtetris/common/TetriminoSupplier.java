@@ -1,7 +1,6 @@
-package jtetris.function;
+package jtetris.common;
 
 import java.util.function.Supplier;
-import jtetris.common.ITetrimino;
 
 @FunctionalInterface
 public interface TetriminoSupplier extends Supplier<ITetrimino> {
