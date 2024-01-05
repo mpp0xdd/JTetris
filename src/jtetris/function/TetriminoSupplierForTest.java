@@ -1,13 +1,11 @@
 package jtetris.function;
 
-import java.util.Random;
 import jtetris.common.IField;
 import jtetris.common.ITetrimino;
 import jtetris.component.ColorBlock;
 import jtetris.component.Tetrimino;
 
 class TetriminoSupplierForTest extends TetriminoSupplierBase {
-  private Random rnd = new Random();
 
   public TetriminoSupplierForTest(IField field) {
     super(field);

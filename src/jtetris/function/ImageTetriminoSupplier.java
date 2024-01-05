@@ -1,13 +1,11 @@
 package jtetris.function;
 
-import java.util.Random;
 import jtetris.common.IField;
 import jtetris.common.ITetrimino;
 import jtetris.component.ImageBlock;
 import jtetris.component.Tetrimino;
 
 class ImageTetriminoSupplier extends TetriminoSupplierBase {
-  private Random rnd = new Random();
 
   public ImageTetriminoSupplier(IField field) {
     super(field);
