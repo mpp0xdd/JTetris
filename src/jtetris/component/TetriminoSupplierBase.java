@@ -1,4 +1,4 @@
-package jtetris.function;
+package jtetris.component;
 
 import java.util.Objects;
 import java.util.Random;

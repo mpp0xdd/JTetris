@@ -1,4 +1,4 @@
-package jtetris.function;
+package jtetris.component;
 
 import jtetris.common.Field;
 import jtetris.common.TetriminoSupplier;

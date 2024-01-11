@@ -10,7 +10,7 @@ import jtetris.common.Field;
 import jtetris.common.Tetrimino;
 import jtetris.common.TetriminoSupplier;
 import jtetris.component.FieldFactory;
-import jtetris.function.TetriminoSupplierFactory;
+import jtetris.component.TetriminoSupplierFactory;
 import jtetris.resource.SoundFactory;
 
 public class MainScreen extends GameScreen implements KeyListener {

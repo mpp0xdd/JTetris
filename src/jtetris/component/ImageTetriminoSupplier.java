@@ -1,9 +1,7 @@
-package jtetris.function;
+package jtetris.component;
 
 import jtetris.common.Field;
 import jtetris.common.Tetrimino;
-import jtetris.component.ImageBlock;
-import jtetris.component.DefaultTetrimino;
 
 class ImageTetriminoSupplier extends TetriminoSupplierBase {
 
