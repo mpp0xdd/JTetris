@@ -10,15 +10,15 @@ import jtetris.common.IBlock;
 import jtetris.resource.ImageFactory;
 
 public class ImageBlock implements IBlock {
-  public static final IBlock GRAY = new ImageBlock(ImageFactory.grayBlockImage());
-  public static final IBlock BLACK = new ImageBlock(ImageFactory.blackBlockImage());
-  public static final IBlock LIGHT_BLUE = new ImageBlock(ImageFactory.lightBlueBlockImage());
-  public static final IBlock YELLOW = new ImageBlock(ImageFactory.yellowBlockImage());
-  public static final IBlock GREEN = new ImageBlock(ImageFactory.greenBlockImage());
-  public static final IBlock RED = new ImageBlock(ImageFactory.redBlockImage());
-  public static final IBlock BLUE = new ImageBlock(ImageFactory.blueBlockImage());
-  public static final IBlock ORANGE = new ImageBlock(ImageFactory.orangeBlockImage());
-  public static final IBlock PURPLE = new ImageBlock(ImageFactory.purpleBlockImage());
+  public static final IBlock GRAY = new ImageBlock(ImageFactory.newGrayBlockImage());
+  public static final IBlock BLACK = new ImageBlock(ImageFactory.newBlackBlockImage());
+  public static final IBlock LIGHT_BLUE = new ImageBlock(ImageFactory.newLightBlueBlockImage());
+  public static final IBlock YELLOW = new ImageBlock(ImageFactory.newYellowBlockImage());
+  public static final IBlock GREEN = new ImageBlock(ImageFactory.newGreenBlockImage());
+  public static final IBlock RED = new ImageBlock(ImageFactory.newRedBlockImage());
+  public static final IBlock BLUE = new ImageBlock(ImageFactory.newBlueBlockImage());
+  public static final IBlock ORANGE = new ImageBlock(ImageFactory.newOrangeBlockImage());
+  public static final IBlock PURPLE = new ImageBlock(ImageFactory.newPurpleBlockImage());
 
   private final BufferedImage image;
 
