@@ -16,8 +16,8 @@ import jtetris.resource.SoundFactory;
 public class MainScreen extends GameScreen implements KeyListener {
 
   private final Field field = FieldFactory.create();
-  private final TetriminoSupplier supplier = TetriminoSupplierFactory.create(field);
-  private Tetrimino tetrimino = supplier.get();
+  private final TetriminoSupplier tetriminoSupplier = TetriminoSupplierFactory.create(field);
+  private Tetrimino tetrimino = tetriminoSupplier.get();
 
   public MainScreen() {
     setScreenSize(field.width(), field.height());
@@ -66,7 +66,7 @@ public class MainScreen extends GameScreen implements KeyListener {
   private void moveDownTetrimino() {
     if (!tetrimino.moveDown()) {
       tetrimino.fix();
-      tetrimino = supplier.get();
+      tetrimino = tetriminoSupplier.get();
     }
   }
 }
