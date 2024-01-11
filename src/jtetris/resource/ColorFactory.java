@@ -8,39 +8,49 @@ public final class ColorFactory {
     // restrict instantiation
   }
 
+  private static final Color GRAY = new Color(119, 119, 119);
+  private static final Color BLACK = new Color(0, 0, 0);
+  private static final Color LIGHT_BLUE = new Color(0, 204, 204);
+  private static final Color YELLOW = new Color(204, 204, 0);
+  private static final Color GREEN = new Color(0, 204, 0);
+  private static final Color RED = new Color(204, 0, 0);
+  private static final Color BLUE = new Color(0, 0, 204);
+  private static final Color ORANGE = new Color(204, 102, 0);
+  private static final Color PURPLE = new Color(153, 0, 204);
+
   public static Color gray() {
-    return new Color(119, 119, 119);
+    return GRAY;
   }
 
   public static Color black() {
-    return new Color(0, 0, 0);
+    return BLACK;
   }
 
   public static Color lightBlue() {
-    return new Color(0, 204, 204);
+    return LIGHT_BLUE;
   }
 
   public static Color yellow() {
-    return new Color(204, 204, 0);
+    return YELLOW;
   }
 
   public static Color green() {
-    return new Color(0, 204, 0);
+    return GREEN;
   }
 
   public static Color red() {
-    return new Color(204, 0, 0);
+    return RED;
   }
 
   public static Color blue() {
-    return new Color(0, 0, 204);
+    return BLUE;
   }
 
   public static Color orange() {
-    return new Color(204, 102, 0);
+    return ORANGE;
   }
 
   public static Color purple() {
-    return new Color(153, 0, 204);
+    return PURPLE;
   }
 }
