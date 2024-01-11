@@ -10,9 +10,15 @@ public final class SoundFactory {
     // restrict instantiation
   }
 
-  public static Optional<Clip> mainScreenBgmClip() {
+  private static final Clip MAIN_SCREEN_BGM;
+
+  static {
     Optional<Clip> clip = GameUtilities.loadClip(SoundFactory.class.getResource("sounds/bgm.wav"));
     clip.ifPresent(c -> GameUtilities.setVolume(c, 0.7f));
-    return clip;
+    MAIN_SCREEN_BGM = clip.orElse(null);
+  }
+
+  public static Optional<Clip> mainScreenBgmClip() {
+    return Optional.ofNullable(MAIN_SCREEN_BGM);
   }
 }
