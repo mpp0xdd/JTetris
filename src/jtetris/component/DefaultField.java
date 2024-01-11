@@ -3,16 +3,16 @@ package jtetris.component;
 import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.Graphics;
 import java.awt.Point;
-import jtetris.common.IBlock;
-import jtetris.common.IField;
+import jtetris.common.Block;
+import jtetris.common.Field;
 
-class Field implements IField {
+class DefaultField implements Field {
   private final Point point;
-  private final IBlock[][] field;
+  private final Block[][] field;
 
-  public Field(int x, int y) {
+  public DefaultField(int x, int y) {
     this.point = new Point(x, y);
-    this.field = new IBlock[rows()][columns()];
+    this.field = new Block[rows()][columns()];
     for (int i = 0; i < rows(); i++) {
       for (int j = 0; j < columns(); j++) {
         if (i == rows() - 1 || j == 0 || j == columns() - 1) {
@@ -24,7 +24,7 @@ class Field implements IField {
     }
   }
 
-  public Field() {
+  public DefaultField() {
     this(0, 0);
   }
 
@@ -39,12 +39,12 @@ class Field implements IField {
   }
 
   @Override
-  public IBlock wall() {
+  public Block wall() {
     return ColorBlock.GRAY;
   }
 
   @Override
-  public IBlock empty() {
+  public Block empty() {
     return ColorBlock.BLACK;
   }
 
@@ -57,14 +57,14 @@ class Field implements IField {
   public void draw(Graphics g) {
     for (int i = 0; i < rows(); i++) {
       for (int j = 0; j < columns(); j++) {
-        IBlock block = this.field[i][j];
+        Block block = this.field[i][j];
         block.draw(g, point.x + j * BLOCK_SIZE, point.y + i * BLOCK_SIZE);
       }
     }
   }
 
   @Override
-  public boolean isSettable(IBlock[][] blocks, int x, int y) {
+  public boolean isSettable(Block[][] blocks, int x, int y) {
     for (int i = 0; i < blocks.length; i++) {
       for (int j = 0; j < blocks[i].length; j++) {
         if (blocks[i][j].equals(empty())) {
@@ -83,7 +83,7 @@ class Field implements IField {
   }
 
   @Override
-  public void set(IBlock[][] blocks, int x, int y) {
+  public void set(Block[][] blocks, int x, int y) {
     if (!isSettable(blocks, x, y)) return;
 
     for (int i = 0; i < blocks.length; i++) {

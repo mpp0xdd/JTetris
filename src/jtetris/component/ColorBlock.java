@@ -4,19 +4,19 @@ import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Objects;
-import jtetris.common.IBlock;
+import jtetris.common.Block;
 import jtetris.resource.ColorFactory;
 
-public class ColorBlock implements IBlock {
-  public static final IBlock GRAY = new ColorBlock(ColorFactory.gray());
-  public static final IBlock BLACK = new ColorBlock(ColorFactory.black());
-  public static final IBlock LIGHT_BLUE = new ColorBlock(ColorFactory.lightBlue());
-  public static final IBlock YELLOW = new ColorBlock(ColorFactory.yellow());
-  public static final IBlock GREEN = new ColorBlock(ColorFactory.green());
-  public static final IBlock RED = new ColorBlock(ColorFactory.red());
-  public static final IBlock BLUE = new ColorBlock(ColorFactory.blue());
-  public static final IBlock ORANGE = new ColorBlock(ColorFactory.orange());
-  public static final IBlock PURPLE = new ColorBlock(ColorFactory.purple());
+public class ColorBlock implements Block {
+  public static final Block GRAY = new ColorBlock(ColorFactory.gray());
+  public static final Block BLACK = new ColorBlock(ColorFactory.black());
+  public static final Block LIGHT_BLUE = new ColorBlock(ColorFactory.lightBlue());
+  public static final Block YELLOW = new ColorBlock(ColorFactory.yellow());
+  public static final Block GREEN = new ColorBlock(ColorFactory.green());
+  public static final Block RED = new ColorBlock(ColorFactory.red());
+  public static final Block BLUE = new ColorBlock(ColorFactory.blue());
+  public static final Block ORANGE = new ColorBlock(ColorFactory.orange());
+  public static final Block PURPLE = new ColorBlock(ColorFactory.purple());
 
   private final Color color;
 

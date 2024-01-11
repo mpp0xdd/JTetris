@@ -6,8 +6,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import jglib.component.GameScreen;
 import jglib.util.GameUtilities;
-import jtetris.common.IField;
-import jtetris.common.ITetrimino;
+import jtetris.common.Field;
+import jtetris.common.Tetrimino;
 import jtetris.common.TetriminoSupplier;
 import jtetris.component.FieldFactory;
 import jtetris.function.TetriminoSupplierFactory;
@@ -15,9 +15,9 @@ import jtetris.resource.SoundFactory;
 
 public class MainScreen extends GameScreen implements KeyListener {
 
-  private final IField field = FieldFactory.create();
+  private final Field field = FieldFactory.create();
   private final TetriminoSupplier supplier = TetriminoSupplierFactory.create(field);
-  private ITetrimino tetrimino = supplier.get();
+  private Tetrimino tetrimino = supplier.get();
 
   public MainScreen() {
     setScreenSize(field.width(), field.height());

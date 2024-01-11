@@ -1,6 +1,6 @@
 package jtetris.component;
 
-import jtetris.common.IField;
+import jtetris.common.Field;
 
 public final class FieldFactory {
 
@@ -8,7 +8,7 @@ public final class FieldFactory {
     // restrict instantiation
   }
 
-  public static IField create() {
-    return new Field();
+  public static Field create() {
+    return new DefaultField();
   }
 }

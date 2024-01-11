@@ -1,6 +1,6 @@
 package jtetris.function;
 
-import jtetris.common.IField;
+import jtetris.common.Field;
 import jtetris.common.TetriminoSupplier;
 
 public final class TetriminoSupplierFactory {
@@ -9,7 +9,7 @@ public final class TetriminoSupplierFactory {
     // restrict instantiation
   }
 
-  public static TetriminoSupplier create(IField field) {
+  public static TetriminoSupplier create(Field field) {
     return new ColorTetriminoSupplier(field);
   }
 }

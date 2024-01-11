@@ -2,7 +2,7 @@ package jtetris.common;
 
 import java.awt.Graphics;
 
-public interface ITetrimino {
+public interface Tetrimino {
 
   default int length() {
     return 4;

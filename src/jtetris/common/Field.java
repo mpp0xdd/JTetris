@@ -4,7 +4,7 @@ import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.Graphics;
 import java.awt.Point;
 
-public interface IField {
+public interface Field {
 
   int rows();
 
@@ -18,17 +18,17 @@ public interface IField {
     return rows() * BLOCK_SIZE;
   }
 
-  IBlock wall();
+  Block wall();
 
-  IBlock empty();
+  Block empty();
 
   Point getLocation();
 
   void draw(Graphics g);
 
-  boolean isSettable(IBlock[][] blocks, int x, int y);
+  boolean isSettable(Block[][] blocks, int x, int y);
 
-  void set(IBlock[][] blocks, int x, int y);
+  void set(Block[][] blocks, int x, int y);
 
   int clearLine();
 }

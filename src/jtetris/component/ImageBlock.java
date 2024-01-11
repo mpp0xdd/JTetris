@@ -6,19 +6,19 @@ import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.Objects;
 import jglib.util.GameUtilities;
-import jtetris.common.IBlock;
+import jtetris.common.Block;
 import jtetris.resource.ImageFactory;
 
-public class ImageBlock implements IBlock {
-  public static final IBlock GRAY = new ImageBlock(ImageFactory.newGrayBlockImage());
-  public static final IBlock BLACK = new ImageBlock(ImageFactory.newBlackBlockImage());
-  public static final IBlock LIGHT_BLUE = new ImageBlock(ImageFactory.newLightBlueBlockImage());
-  public static final IBlock YELLOW = new ImageBlock(ImageFactory.newYellowBlockImage());
-  public static final IBlock GREEN = new ImageBlock(ImageFactory.newGreenBlockImage());
-  public static final IBlock RED = new ImageBlock(ImageFactory.newRedBlockImage());
-  public static final IBlock BLUE = new ImageBlock(ImageFactory.newBlueBlockImage());
-  public static final IBlock ORANGE = new ImageBlock(ImageFactory.newOrangeBlockImage());
-  public static final IBlock PURPLE = new ImageBlock(ImageFactory.newPurpleBlockImage());
+public class ImageBlock implements Block {
+  public static final Block GRAY = new ImageBlock(ImageFactory.newGrayBlockImage());
+  public static final Block BLACK = new ImageBlock(ImageFactory.newBlackBlockImage());
+  public static final Block LIGHT_BLUE = new ImageBlock(ImageFactory.newLightBlueBlockImage());
+  public static final Block YELLOW = new ImageBlock(ImageFactory.newYellowBlockImage());
+  public static final Block GREEN = new ImageBlock(ImageFactory.newGreenBlockImage());
+  public static final Block RED = new ImageBlock(ImageFactory.newRedBlockImage());
+  public static final Block BLUE = new ImageBlock(ImageFactory.newBlueBlockImage());
+  public static final Block ORANGE = new ImageBlock(ImageFactory.newOrangeBlockImage());
+  public static final Block PURPLE = new ImageBlock(ImageFactory.newPurpleBlockImage());
 
   private final BufferedImage image;
 
