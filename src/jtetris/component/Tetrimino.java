@@ -9,13 +9,12 @@ import java.awt.Point;
 import java.util.Objects;
 import jtetris.common.Block;
 import jtetris.common.Field;
-import jtetris.common.Tetrimino;
 
-class DefaultTetrimino implements Tetrimino {
+class Tetrimino implements jtetris.common.Tetrimino {
 
-  public static DefaultTetrimino newITetrimino(Field field, Block block) {
+  public static Tetrimino newITetrimino(Field field, Block block) {
     Objects.requireNonNull(block);
-    DefaultTetrimino i = new DefaultTetrimino(field);
+    Tetrimino i = new Tetrimino(field);
     i.blocks[0][1] = block;
     i.blocks[1][1] = block;
     i.blocks[2][1] = block;
@@ -23,9 +22,9 @@ class DefaultTetrimino implements Tetrimino {
     return i;
   }
 
-  public static DefaultTetrimino newOTetrimino(Field field, Block block) {
+  public static Tetrimino newOTetrimino(Field field, Block block) {
     Objects.requireNonNull(block);
-    DefaultTetrimino o = new DefaultTetrimino(field);
+    Tetrimino o = new Tetrimino(field);
     o.blocks[1][1] = block;
     o.blocks[1][2] = block;
     o.blocks[2][1] = block;
@@ -33,9 +32,9 @@ class DefaultTetrimino implements Tetrimino {
     return o;
   }
 
-  public static DefaultTetrimino newSTetrimino(Field field, Block block) {
+  public static Tetrimino newSTetrimino(Field field, Block block) {
     Objects.requireNonNull(block);
-    DefaultTetrimino s = new DefaultTetrimino(field);
+    Tetrimino s = new Tetrimino(field);
     s.blocks[0][1] = block;
     s.blocks[1][1] = block;
     s.blocks[1][2] = block;
@@ -43,9 +42,9 @@ class DefaultTetrimino implements Tetrimino {
     return s;
   }
 
-  public static DefaultTetrimino newZTetrimino(Field field, Block block) {
+  public static Tetrimino newZTetrimino(Field field, Block block) {
     Objects.requireNonNull(block);
-    DefaultTetrimino z = new DefaultTetrimino(field);
+    Tetrimino z = new Tetrimino(field);
     z.blocks[0][2] = block;
     z.blocks[1][2] = block;
     z.blocks[1][1] = block;
@@ -53,9 +52,9 @@ class DefaultTetrimino implements Tetrimino {
     return z;
   }
 
-  public static DefaultTetrimino newJTetrimino(Field field, Block block) {
+  public static Tetrimino newJTetrimino(Field field, Block block) {
     Objects.requireNonNull(block);
-    DefaultTetrimino j = new DefaultTetrimino(field);
+    Tetrimino j = new Tetrimino(field);
     j.blocks[0][2] = block;
     j.blocks[1][2] = block;
     j.blocks[2][2] = block;
@@ -63,9 +62,9 @@ class DefaultTetrimino implements Tetrimino {
     return j;
   }
 
-  public static DefaultTetrimino newLTetrimino(Field field, Block block) {
+  public static Tetrimino newLTetrimino(Field field, Block block) {
     Objects.requireNonNull(block);
-    DefaultTetrimino l = new DefaultTetrimino(field);
+    Tetrimino l = new Tetrimino(field);
     l.blocks[0][1] = block;
     l.blocks[1][1] = block;
     l.blocks[2][1] = block;
@@ -73,9 +72,9 @@ class DefaultTetrimino implements Tetrimino {
     return l;
   }
 
-  public static DefaultTetrimino newTTetrimino(Field field, Block block) {
+  public static Tetrimino newTTetrimino(Field field, Block block) {
     Objects.requireNonNull(block);
-    DefaultTetrimino t = new DefaultTetrimino(field);
+    Tetrimino t = new Tetrimino(field);
     t.blocks[0][1] = block;
     t.blocks[1][1] = block;
     t.blocks[1][2] = block;
@@ -88,7 +87,7 @@ class DefaultTetrimino implements Tetrimino {
   private final Point point;
   private boolean isFixed;
 
-  private DefaultTetrimino(Field field) {
+  private Tetrimino(Field field) {
     this.field = Objects.requireNonNull(field);
     this.blocks = new Block[length()][length()];
     this.point = new Point(field.columns() / 2 - length() / 2, -length());
@@ -119,7 +118,7 @@ class DefaultTetrimino implements Tetrimino {
   @Override
   public void drawGhost(Graphics g) {
     // Copy Process
-    DefaultTetrimino ghost = new DefaultTetrimino(field);
+    Tetrimino ghost = new Tetrimino(field);
     ghost.blocks = this.blocks;
     ghost.point.setLocation(this.point);
     ghost.isFixed = this.isFixed();

@@ -1,7 +1,6 @@
 package jtetris.component;
 
 import jtetris.common.Field;
-import jtetris.common.Tetrimino;
 
 class ColorTetriminoSupplier extends TetriminoSupplierBase {
 
@@ -10,15 +9,15 @@ class ColorTetriminoSupplier extends TetriminoSupplierBase {
   }
 
   @Override
-  public Tetrimino get() {
+  public jtetris.common.Tetrimino get() {
     return switch (rnd.nextInt(7)) {
-      case 0 -> DefaultTetrimino.newITetrimino(field, ColorBlock.LIGHT_BLUE);
-      case 1 -> DefaultTetrimino.newOTetrimino(field, ColorBlock.YELLOW);
-      case 2 -> DefaultTetrimino.newSTetrimino(field, ColorBlock.GREEN);
-      case 3 -> DefaultTetrimino.newZTetrimino(field, ColorBlock.RED);
-      case 4 -> DefaultTetrimino.newJTetrimino(field, ColorBlock.BLUE);
-      case 5 -> DefaultTetrimino.newLTetrimino(field, ColorBlock.ORANGE);
-      case 6 -> DefaultTetrimino.newTTetrimino(field, ColorBlock.PURPLE);
+      case 0 -> Tetrimino.newITetrimino(field, ColorBlock.LIGHT_BLUE);
+      case 1 -> Tetrimino.newOTetrimino(field, ColorBlock.YELLOW);
+      case 2 -> Tetrimino.newSTetrimino(field, ColorBlock.GREEN);
+      case 3 -> Tetrimino.newZTetrimino(field, ColorBlock.RED);
+      case 4 -> Tetrimino.newJTetrimino(field, ColorBlock.BLUE);
+      case 5 -> Tetrimino.newLTetrimino(field, ColorBlock.ORANGE);
+      case 6 -> Tetrimino.newTTetrimino(field, ColorBlock.PURPLE);
       default -> throw (new IllegalStateException("Failed to supply tetriminos"));
     };
   }
