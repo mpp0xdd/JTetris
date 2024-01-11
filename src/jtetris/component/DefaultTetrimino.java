@@ -11,7 +11,7 @@ import jtetris.common.Block;
 import jtetris.common.Field;
 import jtetris.common.Tetrimino;
 
-public class DefaultTetrimino implements Tetrimino {
+class DefaultTetrimino implements Tetrimino {
 
   public static DefaultTetrimino newITetrimino(Field field, Block block) {
     Objects.requireNonNull(block);
