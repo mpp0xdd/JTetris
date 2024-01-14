@@ -10,7 +10,7 @@ import java.util.Objects;
 import jtetris.common.Block;
 import jtetris.common.Field;
 
-class Tetrimino implements jtetris.common.Tetrimino {
+final class Tetrimino implements jtetris.common.Tetrimino {
 
   public static Tetrimino newITetrimino(Field field, Block block) {
     Objects.requireNonNull(block);
