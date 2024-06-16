@@ -13,7 +13,7 @@ public final class SoundFactory {
   private static final Clip MAIN_SCREEN_BGM;
 
   static {
-    Optional<Clip> clip = GameUtilities.loadClip(SoundFactory.class.getResource("sounds/bgm.wav"));
+    Optional<Clip> clip = GameUtilities.loadClip(SoundFactory.class, "sounds/bgm.wav");
     clip.ifPresent(c -> GameUtilities.setVolume(c, 0.7f));
     MAIN_SCREEN_BGM = clip.orElse(null);
   }
