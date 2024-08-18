@@ -41,7 +41,6 @@ public class MainScreen extends GameScreen implements KeyListener {
   protected void runGameLoop() {
     moveDownTetrimino();
     field.clearLine();
-    repaint();
   }
 
   @Override
