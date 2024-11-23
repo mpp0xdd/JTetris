@@ -1,6 +1,5 @@
 package jtetris.screen;
 
-import static jtetris.common.Constants.GAME_LOOP_INTERVAL;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -21,7 +20,7 @@ public class MainScreen extends GameScreen implements KeyListener {
 
   public MainScreen() {
     setScreenSize(field.width(), field.height());
-    setGameLoopInterval(GAME_LOOP_INTERVAL);
+    setGameLoopInterval(250L);
     setFocusable(true);
     addKeyListener(this);
   }
