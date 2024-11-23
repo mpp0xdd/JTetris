@@ -1,6 +1,5 @@
 package jtetris.common;
 
-import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.Graphics;
 import java.awt.Point;
 
@@ -10,13 +9,9 @@ public interface Field {
 
   int columns();
 
-  default int width() {
-    return columns() * BLOCK_SIZE;
-  }
+  int width();
 
-  default int height() {
-    return rows() * BLOCK_SIZE;
-  }
+  int height();
 
   Block wall();
 

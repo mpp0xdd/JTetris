@@ -1,8 +1,8 @@
 package jtetris.component;
 
-import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.Arrays;
 import jtetris.common.Block;
 import jtetris.common.Field;
 
@@ -39,6 +39,21 @@ class DefaultField implements Field {
   }
 
   @Override
+  public int width() {
+    return Arrays.stream(field[0]) //
+        .mapToInt(Block::size)
+        .sum();
+  }
+
+  @Override
+  public int height() {
+    return Arrays.stream(field) //
+        .map(row -> row[0])
+        .mapToInt(Block::size)
+        .sum();
+  }
+
+  @Override
   public Block wall() {
     return ColorBlock.GRAY;
   }
@@ -58,7 +73,7 @@ class DefaultField implements Field {
     for (int i = 0; i < rows(); i++) {
       for (int j = 0; j < columns(); j++) {
         Block block = this.field[i][j];
-        block.draw(g, point.x + j * BLOCK_SIZE, point.y + i * BLOCK_SIZE);
+        block.draw(g, point.x + j * block.size(), point.y + i * block.size());
       }
     }
   }

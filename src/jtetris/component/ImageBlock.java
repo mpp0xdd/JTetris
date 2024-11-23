@@ -1,6 +1,5 @@
 package jtetris.component;
 
-import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.net.URL;
@@ -24,11 +23,11 @@ public class ImageBlock implements Block {
 
   public ImageBlock(BufferedImage image) {
     this.image = Objects.requireNonNull(image);
-    if (image.getWidth() != BLOCK_SIZE || image.getHeight() != BLOCK_SIZE) {
+    if (image.getWidth() != size() || image.getHeight() != size()) {
       throw (new IllegalArgumentException(
           String.format(
               "Image size error: %d*%d != %d*%d",
-              image.getWidth(), image.getHeight(), BLOCK_SIZE, BLOCK_SIZE)));
+              image.getWidth(), image.getHeight(), size(), size())));
     }
   }
 

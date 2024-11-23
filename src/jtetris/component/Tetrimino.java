@@ -1,6 +1,5 @@
 package jtetris.component;
 
-import static jtetris.common.Constants.BLOCK_SIZE;
 import java.awt.AlphaComposite;
 import java.awt.Composite;
 import java.awt.Graphics;
@@ -108,8 +107,8 @@ final class Tetrimino implements jtetris.common.Tetrimino {
         if (!block.equals(field.empty())) {
           block.draw(
               g,
-              field.getLocation().x + (point.x + j) * BLOCK_SIZE,
-              field.getLocation().y + (point.y + i) * BLOCK_SIZE);
+              field.getLocation().x + (point.x + j) * block.size(),
+              field.getLocation().y + (point.y + i) * block.size());
         }
       }
     }
