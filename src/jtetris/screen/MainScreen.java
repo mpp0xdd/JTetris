@@ -3,7 +3,7 @@ package jtetris.screen;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import jglib.component.GameScreen;
+import jglib.screen.GameScreen;
 import jglib.util.GameUtilities;
 import jtetris.common.Field;
 import jtetris.common.Tetrimino;

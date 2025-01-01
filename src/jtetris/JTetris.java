@@ -1,7 +1,7 @@
 package jtetris;
 
-import jglib.component.GameWindow;
 import jglib.core.Game;
+import jglib.screen.GameWindow;
 import jtetris.screen.MainScreen;
 
 public class JTetris extends Game {
